@@ -50,6 +50,7 @@
      <Compile Include="Assets\PlatformGenorator\PlatfromGenorationScript.cs" />
      <Compile Include="Assets\Players\Player.cs" />
      <Compile Include="Assets\Players\Player1.cs" />
+     <Compile Include="Assets\Rocks\RockCode.cs" />
      <Compile Include="Assets\Rocks\RockThrower.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

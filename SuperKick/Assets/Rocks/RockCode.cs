@@ -1,10 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class RockThrower : MonoBehaviour {
+public class RockCode : MonoBehaviour {
 
-	public Transform rockPrefab;
-	private float time;
 	// Use this for initialization
 	void Start () {
 	
@@ -12,6 +10,6 @@ public class RockThrower : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+	
 	}
 }
