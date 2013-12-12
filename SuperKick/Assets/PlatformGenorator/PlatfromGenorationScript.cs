@@ -48,4 +48,8 @@ public class PlatfromGenorationScript : MonoBehaviour {
 		}
 	}
 
+	private int lowestPlatform() {
+
+	}
+
 }
