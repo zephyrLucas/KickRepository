@@ -42,14 +42,23 @@ public class PlatfromGenorationScript : MonoBehaviour {
 	}
 
 	private void destroyTheGround() {
-		if(((Transform) platforms[0]).localPosition.y < AlienScript.currentHeight) {
-			GameObject.Destroy( ((Transform) platforms[0]).gameObject);
-			platforms.RemoveAt(0);
+		int lowestP = lowestPlatform();
+		if(((Transform) platforms[lowestP]).localPosition.y < AlienScript.currentHeight) {
+			GameObject.Destroy( ((Transform) platforms[lowestP]).gameObject);
+			platforms.RemoveAt(lowestP);
 		}
 	}
 
 	private int lowestPlatform() {
-
+		int x = 0;
+		float min = ((Transform) platforms[0]).localPosition.y;
+		for(int i = 0; i < platforms.Count; i++) {
+			if(((Transform) platforms[i]).localPosition.y < min) {
+				min = ((Transform) platforms[i]).localPosition.y;
+				x = i;
+			}
+		}
+		return x;
 	}
 
 }
