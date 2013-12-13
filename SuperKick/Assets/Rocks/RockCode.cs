@@ -10,7 +10,7 @@ public class RockCode : MonoBehaviour {
 	void Start () {
 		nextPos = this.transform.localPosition;
 		currentVelocity.x = Random.Range(-3, 3);
-		currentVelocity.y = Random.Range(-3, 3);
+		currentVelocity.y = Random.Range(-4, 1);
 	}
 	
 	// Update is called once per frame
