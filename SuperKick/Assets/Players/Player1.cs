@@ -10,7 +10,5 @@ public class Player1 : Player {
 		}
 	
 	// Update is called once per frame
-	void Update () {
-		
-	}
+
 }
