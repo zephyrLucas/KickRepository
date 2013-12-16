@@ -17,6 +17,7 @@ public abstract class Player : MonoBehaviour {
 
 		startPos.x = xStart;
 		startPos.y = yStart;
+		newPos = startPos;
 		transform.localPosition=startPos;
 
 
