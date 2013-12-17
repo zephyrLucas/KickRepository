@@ -9,6 +9,7 @@ public abstract class Player : MonoBehaviour {
 	public Vector2 kickCast;
 	public float xStart;
 	public float yStart;
+	
 
 	
 
@@ -50,21 +51,22 @@ public abstract class Player : MonoBehaviour {
 			GravSpeed += 9f;
 		}
 
-		newPos.x += horizontalSp * Time.deltaTime;
-		newPos.y += GravSpeed * Time.deltaTime;
 
-		transform.localPosition = newPos;
 
-		RaycastHit2D groundCheck = Physics2D.Raycast (newPos, -Vector2.up);
-		if (groundCheck != null) {
-			float distance = Mathf.Abs(groundCheck.point.y-newPos.y);
+		Vector2 down = transform.TransformDirection(-Vector2.up);
+
+		if (Physics.Raycast(transform.position, down, transform.localScale.y / 2)) {
+			if( GravSpeed < 0f){
+				GravSpeed = 0f;
+			}
 
 		}
 
+		newPos.x += horizontalSp * Time.deltaTime;
+		newPos.y += GravSpeed * Time.deltaTime;
+		
+		transform.localPosition = newPos;
 
-
-
-		print(distance.ToString());
 	}
 
 		protected abstract bool isMovingRight();
