@@ -10,7 +10,7 @@ public abstract class Player : MonoBehaviour {
 	public float xStart;
 	public float yStart;
 	
-
+//i like turtles
 	
 
 	private float gravity = -9.8f;
