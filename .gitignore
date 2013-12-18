@@ -1,2 +1,5 @@
+*.sln
+*.csproj
+
 SuperKick/Library
 SuperKick/Temp
