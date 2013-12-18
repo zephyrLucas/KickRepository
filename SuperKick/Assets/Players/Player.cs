@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public abstract class Player : MonoBehaviour {
+public abstract class Player : PhysicsObject {
 	public CharacterController controller;
 	public Vector2 startPos;
 	private Vector2 newPos;
@@ -14,13 +14,13 @@ public abstract class Player : MonoBehaviour {
 	
 
 	private float gravity = -9.8f;
-	private float GravSpeed;
+	//private float GravSpeed;
 
-	private float horizontalSp;
+	//private float horizontalSp;
 
 	// Use this for initialization
 	
-	void Start () {
+	public override void Start () {
 		initialization ();
 
 		startPos.x = xStart;
@@ -35,7 +35,7 @@ public abstract class Player : MonoBehaviour {
 	public abstract void initialization();
 
 	// Update is called once per frame
-	void Update () {
+	public override void Update () {
 
 		if (isMovingRight()) {
 			horizontalSp = 3f;
