@@ -4,16 +4,27 @@ using System.Collections;
 public class PlatfromGenorationScript : MonoBehaviour {
 
 	public Transform platformPrefab;
-
+	public Transform wallPrefab;
 	private ArrayList platforms = new ArrayList();
-
+	private ArrayList walls=new ArrayList();
 	public Vector2 nextPos;
-
+	public Vector2 wallPosLeft;
+	public Vector2 wallPosRight;
 	// Use this for initialization
 	void Start () {
+		wallPosLeft.x = -10;
+		wallPosLeft.y = 5;
+		wallPosRight.y = 5;
+		wallPosRight.x = 10;
 		for(int i = 0; i < 14; i++) {
 			innitialcreate();
 		}
+		Transform init1 = (Transform)Instantiate (wallPrefab);
+		Transform init2 = (Transform)Instantiate (wallPrefab);
+		init1.localPosition = wallPosLeft;
+		init2.localPosition = wallPosRight;
+		walls.Add (init1);
+		walls.Add (init2);
 	}
 	
 	// Update is called once per frame
@@ -39,15 +50,34 @@ public class PlatfromGenorationScript : MonoBehaviour {
 			temp.localPosition = nextPos;
 
 		}
+		while(walls.Count < 6) {
+			Transform tempL=(Transform) Instantiate(wallPrefab);
+			Transform tempR=(Transform) Instantiate (wallPrefab);
+			tempR.localPosition=wallPosRight;
+			tempL.localPosition=wallPosLeft;
+			walls.Add(tempL);
+			walls.Add (tempR);
+			wallPosLeft.y+=10;
+			wallPosRight.y+=10;
+		}
+
 	}
 
 	private void destroyTheGround() {
-		int lowestP = lowestPlatform();
-		if(((Transform) platforms[lowestP]).localPosition.y < AlienScript.currentHeight) {
-			GameObject.Destroy( ((Transform) platforms[lowestP]).gameObject);
-			platforms.RemoveAt(lowestP);
+				int lowestP = lowestPlatform ();
+				if (((Transform)platforms [lowestP]).localPosition.y < AlienScript.currentHeight) {
+						GameObject.Destroy (((Transform)platforms [lowestP]).gameObject);
+						platforms.RemoveAt (lowestP);
+				}
+				if (walls[0] != null) {
+						if (((Transform)walls [0]).localPosition.y < AlienScript.currentHeight-5) {
+								GameObject.Destroy (((Transform)walls [0]).gameObject);
+								walls.RemoveAt (0);
+								GameObject.Destroy (((Transform)walls [0]).gameObject);
+								walls.RemoveAt (0);
+						}
+				}
 		}
-	}
 
 	private int lowestPlatform() {
 		int x = 0;
