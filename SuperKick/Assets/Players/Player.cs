@@ -60,6 +60,8 @@ public abstract class Player : PhysicsObject {
 		Vector2 left = transform.TransformDirection(-Vector2.right);
 		Vector2 right = transform.TransformDirection(Vector2.right);
 
+		RaycastHit hit;
+
 		if (Physics.Raycast(transform.position, down, transform.localScale.y / 2)) {
 			if( GravSpeed < 0f){
 				GravSpeed = 0f;
@@ -72,6 +74,8 @@ public abstract class Player : PhysicsObject {
 				if(isKicking()) {
 					horizontalSp += 25f;
 					GravSpeed = 8f;
+					Physics.Raycast(transform.position, left, out hit);
+					if (hit.collider.gameObject.GetType().IsAssignableFrom(PhysicsObject));
 				}
 			}
 		}

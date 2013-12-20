@@ -15,6 +15,8 @@ public class RockCode : PhysicsObject {
 	
 	// Update is called once per frame
 	public override void Update () {
+		currentVelocity.y = GravSpeed;
+		currentVelocity.x = horizontalSp;
 		nextPos = nextPos + (Time.deltaTime * currentVelocity);
 		this.transform.localPosition = nextPos;
 	}
