@@ -17,6 +17,7 @@ public abstract class Player : PhysicsObject {
 	//private float GravSpeed;
 
 	//private float horizontalSp;
+	private bool dirIsR = true;
 
 	// Use this for initialization
 	
@@ -38,11 +39,13 @@ public abstract class Player : PhysicsObject {
 	public override void Update () {
 
 		if (isMovingRight()) {
-			horizontalSp = 3f;
+			horizontalSp += 3f * Time.deltaTime;
+			dirIsR = true;
 		} else if (isMovingLeft()) {
-			horizontalSp = -3f;
+			horizontalSp += -3f * Time.deltaTime;
+			dirIsR = false;
 		} else {
-			horizontalSp = 0f;
+			horizontalSp *= Mathf.Pow(.00001f, Time.deltaTime);
 		}
 
 		GravSpeed += gravity * Time.deltaTime;
@@ -54,12 +57,32 @@ public abstract class Player : PhysicsObject {
 
 
 		Vector2 down = transform.TransformDirection(-Vector2.up);
+		Vector2 left = transform.TransformDirection(-Vector2.right);
+		Vector2 right = transform.TransformDirection(Vector2.right);
 
 		if (Physics.Raycast(transform.position, down, transform.localScale.y / 2)) {
 			if( GravSpeed < 0f){
 				GravSpeed = 0f;
 			}
+		}
 
+		if(!dirIsR) {
+			if (Physics.Raycast(transform.position, left, transform.localScale.y / 2)) {
+				horizontalSp = 0;
+				if(isKicking()) {
+					horizontalSp += 25f;
+					GravSpeed = 8f;
+				}
+			}
+		}
+		if(dirIsR) {
+			if (Physics.Raycast(transform.position, right, transform.localScale.y / 2)) {
+				horizontalSp = 0;
+				if(isKicking()) {
+					horizontalSp += -25f;
+					GravSpeed = 8f;
+				}
+			}
 		}
 
 		newPos.x += horizontalSp * Time.deltaTime;
@@ -72,6 +95,7 @@ public abstract class Player : PhysicsObject {
 		protected abstract bool isMovingRight();
 		protected abstract bool isMovingLeft();
 		protected abstract bool isJumping();
+		protected abstract bool isKicking();
 
 
 	

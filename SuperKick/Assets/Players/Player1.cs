@@ -29,6 +29,13 @@ public class Player1 : Player {
 		}
 		return false;
 	}
+
+	protected override bool isKicking() {
+		if(Input.GetKeyDown(KeyCode.V)) {
+			return true;
+		}
+		return false;
+	}
 	
 	// Update is called once per frame
 

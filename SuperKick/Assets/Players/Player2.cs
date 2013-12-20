@@ -30,6 +30,13 @@ public class Player2 : Player {
 		}
 		return false;
 	}
+
+	protected override bool isKicking() {
+		if(Input.GetKeyDown(KeyCode.RightArrow)) {
+			return true;
+		}
+		return false;
+	}
 	// Update is called once per frame
 
 }
