@@ -2,7 +2,10 @@ fileFormatVersion: 2
 guid: e52c4c77f6a60794bb14aa95375a5558
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - platformPrefab: {instanceID: 0}
+  - wallPrefab: {instanceID: 0}
+  - boostPrefab: {fileID: 400000, guid: 2068b6a794c64ad4b867f740c81e1d0c, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

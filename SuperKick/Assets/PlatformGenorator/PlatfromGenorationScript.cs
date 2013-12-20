@@ -5,11 +5,13 @@ public class PlatfromGenorationScript : MonoBehaviour {
 
 	public Transform platformPrefab;
 	public Transform wallPrefab;
+	public Transform boostPrefab;
 	private ArrayList platforms = new ArrayList();
 	private ArrayList walls=new ArrayList();
 	public Vector2 nextPos;
 	public Vector2 wallPosLeft;
 	public Vector2 wallPosRight;
+	public Vector2 boostPos;
 	// Use this for initialization
 	void Start () {
 		wallPosLeft.x = -10;
@@ -30,6 +32,7 @@ public class PlatfromGenorationScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		createTheGround();
+		boostGenerate ();
 		destroyTheGround();
 	}
 
@@ -40,7 +43,16 @@ public class PlatfromGenorationScript : MonoBehaviour {
 		nextPos.y = (float) (Random.Range(0, 10) + ((int) AlienScript.currentHeight));
 		temp.localPosition = nextPos;
 	}
+	public void boostGenerate(){
+		boostPos = nextPos;
+		float chance = Random.Range (1, 1000);//place holder, 1 in x chance of generating a boost
+		if (chance == 3) {
+			Transform newBoost=(Transform)Instantiate(boostPrefab);
+			boostPos.y+=1;
+			newBoost.localPosition=boostPos;
 
+		}
+	}
 	private void createTheGround() {
 		if(platforms.Count < 14) {
 			Transform temp = (Transform) Instantiate(platformPrefab);

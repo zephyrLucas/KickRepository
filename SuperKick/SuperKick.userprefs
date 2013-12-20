@@ -1,9 +1,9 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\PlatformGenorator\PlatfromGenorationScript.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Boosts\Boost.cs">
     <Files>
-      <File FileName="Assets\PlatformGenorator\PlatfromGenorationScript.cs" Line="67" Column="28" />
-      <File FileName="Assets\PlatformGenorator\PlatfromGenorationScript.cs" Line="95" Column="1" />
+      <File FileName="Assets\Boosts\Boost.cs" Line="13" Column="3" />
+      <File FileName="Assets\PlatformGenorator\PlatfromGenorationScript.cs" Line="48" Column="39" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
