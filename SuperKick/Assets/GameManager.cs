@@ -3,13 +3,17 @@ using System.Collections;
 
 public class GameManager : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
+	public delegate void GameEvent();
+	public static event GameEvent gameStarter, gameEnder;
+	public static void triggerGameStart(){
+		if(gameStarter!=null){
+			gameStarter();
+		}
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+	public static void triggerGameEnd(){
+		if(gameEnder!=null){
+			gameEnder();
+		}
 	}
+
 }

@@ -12,18 +12,18 @@ public class AlienScript : MonoBehaviour {
 		currentHeight = 0f;
 		newPos = new Vector2(0f, 0f);
 	}
-	void onTriggerEnter(Collider lander){
-				//declare a winner, find out which player it is using tags
-				if (lander.CompareTag ("BlueGuy")) {
-						//red wins
-						print ("blue fell");
-
-				}
-				if (lander.CompareTag ("RedGuy")) {
-						//blue wins
-						print ("red fell");
-				}
-		}
+//	void onTriggerEnter(Collider lander){
+//				//declare a winner, find out which player it is using tags
+//				if (lander.CompareTag ("BlueGuy")) {
+//						//red wins
+//						print ("blue fell");
+//
+//				}
+//				if (lander.CompareTag ("RedGuy")) {
+//						//blue wins
+//						print ("red fell");
+//				}
+//		}
 	// Update is called once per frame
 	void Update () {
 		float increase = Time.deltaTime * 2f;
