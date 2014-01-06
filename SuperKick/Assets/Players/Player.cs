@@ -75,7 +75,9 @@ public abstract class Player : PhysicsObject {
 					horizontalSp += 25f;
 					GravSpeed = 8f;
 					Physics.Raycast(transform.position, left, out hit);
-					if (hit.collider.gameObject.GetType().IsAssignableFrom(PhysicsObject));
+					if (anyIsPhysics(hit.collider.GetComponents<MonoBehaviour>())) {
+						print ("dskjhgj dfsf g");
+					}
 				}
 			}
 		}
@@ -85,6 +87,10 @@ public abstract class Player : PhysicsObject {
 				if(isKicking()) {
 					horizontalSp += -25f;
 					GravSpeed = 8f;
+					Physics.Raycast(transform.position, right, out hit);
+					if (anyIsPhysics(hit.collider.GetComponents<MonoBehaviour>())) {
+						print ("dskjav rjfbg");
+					}
 				}
 			}
 		}
@@ -94,6 +100,17 @@ public abstract class Player : PhysicsObject {
 		
 		transform.localPosition = newPos;
 
+	}
+
+
+	private bool anyIsPhysics(MonoBehaviour[] stuff) {
+		bool any = false;
+		if(stuff.Length != 0) {
+			foreach (MonoBehaviour script in stuff) {
+				any = any || (script is PhysicsObject);
+			}
+		}
+		return any;
 	}
 
 		protected abstract bool isMovingRight();
