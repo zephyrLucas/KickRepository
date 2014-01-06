@@ -11,4 +11,12 @@ public abstract class PhysicsObject : MonoBehaviour {
 	
 	// Update is called once per frame
 	public abstract void Update ();
+
+	public void addToHSpeed(float x) {
+		horizontalSp += x;
+	}
+
+	public void addToVSpeed(float x) {
+		GravSpeed += x;
+	}
 }

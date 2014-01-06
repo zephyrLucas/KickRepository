@@ -76,7 +76,7 @@ public abstract class Player : PhysicsObject {
 					GravSpeed = 8f;
 					Physics.Raycast(transform.position, left, out hit);
 					if (anyIsPhysics(hit.collider.GetComponents<MonoBehaviour>())) {
-						print ("dskjhgj dfsf g");
+						getPhysicsO(hit.collider.GetComponents<MonoBehaviour>()).addToHSpeed(-3f);
 					}
 				}
 			}
@@ -89,7 +89,7 @@ public abstract class Player : PhysicsObject {
 					GravSpeed = 8f;
 					Physics.Raycast(transform.position, right, out hit);
 					if (anyIsPhysics(hit.collider.GetComponents<MonoBehaviour>())) {
-						print ("dskjav rjfbg");
+						getPhysicsO(hit.collider.GetComponents<MonoBehaviour>()).addToHSpeed(3f);
 					}
 				}
 			}
@@ -111,6 +111,15 @@ public abstract class Player : PhysicsObject {
 			}
 		}
 		return any;
+	}
+
+	private PhysicsObject getPhysicsO(MonoBehaviour[] morestuff) {
+		foreach (MonoBehaviour script in morestuff) {
+			if(script is PhysicsObject) {
+				return ((PhysicsObject) script);
+			}
+		}
+		return null;
 	}
 
 		protected abstract bool isMovingRight();
