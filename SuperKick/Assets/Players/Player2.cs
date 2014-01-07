@@ -37,6 +37,22 @@ public class Player2 : Player {
 		}
 		return false;
 	}
+
+	protected override bool isUsingBoost1() {
+		if(Input.GetKeyDown(KeyCode.UpArrow)) {
+			return true;
+		}
+		return false;
+	}
+	
+	protected override bool isUsingBoost2() {
+		if(Input.GetKeyDown(KeyCode.DownArrow)) {
+			return true;
+		}
+		return false;
+	}
+
+
 	// Update is called once per frame
 
 }

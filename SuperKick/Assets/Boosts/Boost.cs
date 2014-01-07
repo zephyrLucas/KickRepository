@@ -10,7 +10,8 @@ public class Boost : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (transform.localPosition.y < AlienScript.currentHeight)
-						GameObject.Destroy (transform.gameObject);
+		if (transform.localPosition.y < AlienScript.currentHeight) {
+			GameObject.Destroy (transform.gameObject);
+		}
 	}
 }

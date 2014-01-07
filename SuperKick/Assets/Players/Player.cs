@@ -9,6 +9,8 @@ public abstract class Player : PhysicsObject {
 	public Vector2 kickCast;
 	public float xStart;
 	public float yStart;
+
+	public Boost[] = new Boost[2]();
 	
 //i like turtles
 	
@@ -38,14 +40,16 @@ public abstract class Player : PhysicsObject {
 	// Update is called once per frame
 	public override void Update () {
 
+		horizontalSp *= Mathf.Pow(.001f, Time.deltaTime);
+
 		if (isMovingRight()) {
-			horizontalSp += 3f * Time.deltaTime;
+			horizontalSp += .75f;
 			dirIsR = true;
 		} else if (isMovingLeft()) {
-			horizontalSp += -3f * Time.deltaTime;
+			horizontalSp += -.75f;
 			dirIsR = false;
 		} else {
-			horizontalSp *= Mathf.Pow(.00001f, Time.deltaTime);
+
 		}
 
 		GravSpeed += gravity * Time.deltaTime;
@@ -128,6 +132,8 @@ public abstract class Player : PhysicsObject {
 		protected abstract bool isMovingLeft();
 		protected abstract bool isJumping();
 		protected abstract bool isKicking();
+		protected abstract bool isUsingBoost1();
+		protected abstract bool isUsingBoost2();
 
 
 	
