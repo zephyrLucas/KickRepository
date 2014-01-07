@@ -9,8 +9,9 @@ public class AlienScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		currentHeight = 0f;
-		newPos = new Vector2(0f, 0f);
+		GameManager.gameStarter += gameStart;
+		GameManager.gameEnder += gameEnd;
+		enabled = false;
 	}
 //	void onTriggerEnter(Collider lander){
 //				//declare a winner, find out which player it is using tags
@@ -31,4 +32,12 @@ public class AlienScript : MonoBehaviour {
 		newPos.y = currentHeight;
 		transform.localPosition = newPos;
 	}
+	void gameStart(){
+		enabled = true;
+		currentHeight = 0f;
+		newPos = new Vector2(0f, 0f);
+		}
+	void gameEnd(){
+		}
+
 }

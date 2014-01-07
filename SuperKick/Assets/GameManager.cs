@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class GameManager : MonoBehaviour {
-
+	private bool isRunning=false;
 	public delegate void GameEvent();
 	public static event GameEvent gameStarter, gameEnder;
 	public static void triggerGameStart(){
@@ -14,6 +14,13 @@ public class GameManager : MonoBehaviour {
 		if(gameEnder!=null){
 			gameEnder();
 		}
+	}
+	void Update(){
+		if (Input.GetKeyUp ("space") && !isRunning) {
+		//	print ("space was hit");
+			triggerGameStart();
+			isRunning=true;
+				}
 	}
 
 }

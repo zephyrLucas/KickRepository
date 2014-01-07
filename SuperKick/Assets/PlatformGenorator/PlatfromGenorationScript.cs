@@ -14,6 +14,20 @@ public class PlatfromGenorationScript : MonoBehaviour {
 	public Vector2 boostPos;
 	// Use this for initialization
 	void Start () {
+		GameManager.gameStarter += gameStart;
+		GameManager.gameEnder += gameEnd;
+		enabled = false;
+
+	}
+	
+	// Update is called once per frame
+	void Update () {
+		createTheGround();
+		boostGenerate ();
+		destroyTheGround();
+	}
+	void gameStart(){
+		enabled = true;
 		wallPosLeft.x = -10;
 		wallPosLeft.y = 5;
 		wallPosRight.y = 5;
@@ -27,15 +41,9 @@ public class PlatfromGenorationScript : MonoBehaviour {
 		init2.localPosition = wallPosRight;
 		walls.Add (init1);
 		walls.Add (init2);
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		createTheGround();
-		boostGenerate ();
-		destroyTheGround();
-	}
-
+		}
+	void gameEnd(){
+		}
 	private void innitialcreate() {
 		Transform temp = (Transform) Instantiate(platformPrefab);
 		platforms.Add(temp);
