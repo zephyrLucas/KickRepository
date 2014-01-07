@@ -1,9 +1,12 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\AlienScript.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Rocks\RockCode.cs">
     <Files>
-      <File FileName="Assets\AlienScript.cs" Line="11" Column="17" />
-      <File FileName="Assets\GameManager.cs" Line="16" Column="4" />
+      <File FileName="Assets\PhysicsObject.cs" Line="1" Column="1" />
+      <File FileName="Assets\Players\Player.cs" Line="66" Column="24" />
+      <File FileName="Assets\Players\Player1.cs" Line="1" Column="1" />
+      <File FileName="Assets\Players\Player2.cs" Line="43" Column="1" />
+      <File FileName="Assets\Rocks\RockCode.cs" Line="24" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

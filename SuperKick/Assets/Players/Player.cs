@@ -76,7 +76,8 @@ public abstract class Player : PhysicsObject {
 					GravSpeed = 8f;
 					Physics.Raycast(transform.position, left, out hit);
 					if (anyIsPhysics(hit.collider.GetComponents<MonoBehaviour>())) {
-						getPhysicsO(hit.collider.GetComponents<MonoBehaviour>()).addToHSpeed(-3f);
+						getPhysicsO(hit.collider.GetComponents<MonoBehaviour>()).addToHSpeed(-5f);
+						getPhysicsO(hit.collider.GetComponents<MonoBehaviour>()).addToVSpeed(-3f);
 					}
 				}
 			}
@@ -89,7 +90,8 @@ public abstract class Player : PhysicsObject {
 					GravSpeed = 8f;
 					Physics.Raycast(transform.position, right, out hit);
 					if (anyIsPhysics(hit.collider.GetComponents<MonoBehaviour>())) {
-						getPhysicsO(hit.collider.GetComponents<MonoBehaviour>()).addToHSpeed(3f);
+						getPhysicsO(hit.collider.GetComponents<MonoBehaviour>()).addToHSpeed(5f);
+						getPhysicsO(hit.collider.GetComponents<MonoBehaviour>()).addToVSpeed(-3f);
 					}
 				}
 			}
