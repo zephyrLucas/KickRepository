@@ -11,13 +11,9 @@ public class RockThrower : MonoBehaviour {
 	private ArrayList rocks = new ArrayList();
 	// Use this for initialization
 	void Start () {
-		for(int i = 0; i < 4; i++) {
-			Transform temp = (Transform) Instantiate(rockPrefab);
-			rocks.Add(temp);
-			nextPos.x = Random.Range(-10, 10);
-			nextPos.y = -10f;
-			temp.localPosition = nextPos;
-		}
+		GameManager.gameStarter += gameStart;
+		GameManager.gameEnder += gameEnd;
+		enabled = false;
 	}
 	
 	// Update is called once per frame
@@ -31,7 +27,18 @@ public class RockThrower : MonoBehaviour {
 		}
 
 	}
-
+	void gameStart(){
+		enabled = true;
+		for(int i = 0; i < 4; i++) {
+			Transform temp = (Transform) Instantiate(rockPrefab);
+			rocks.Add(temp);
+			nextPos.x = Random.Range(-10, 10);
+			nextPos.y = -10f;
+			temp.localPosition = nextPos;
+		}
+		}
+	void gameEnd(){
+		}
 	private void meteorThrower() {
 		if(rocks.Count < 4) {
 			createMeteor();
