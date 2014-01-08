@@ -76,7 +76,7 @@ public abstract class Player : PhysicsObject {
 			if (Physics.Raycast(transform.position, left, transform.localScale.y / 2)) {
 				horizontalSp = 0;
 				if(isKicking()) {
-					horizontalSp += 25f;
+					horizontalSp += 45f;
 					GravSpeed = 8f;
 					Physics.Raycast(transform.position, left, out hit);
 					if (anyIsPhysics(hit.collider.GetComponents<MonoBehaviour>())) {
@@ -90,7 +90,7 @@ public abstract class Player : PhysicsObject {
 			if (Physics.Raycast(transform.position, right, transform.localScale.y / 2)) {
 				horizontalSp = 0;
 				if(isKicking()) {
-					horizontalSp += -25f;
+					horizontalSp += -45f;
 					GravSpeed = 8f;
 					Physics.Raycast(transform.position, right, out hit);
 					if (anyIsPhysics(hit.collider.GetComponents<MonoBehaviour>())) {
