@@ -10,7 +10,7 @@ public abstract class Player : PhysicsObject {
 	public float xStart;
 	public float yStart;
 
-	public Boost[] = new Boost[2]();
+	//public Boost[] = new Boost[2]();
 	
 //i like turtles
 	
