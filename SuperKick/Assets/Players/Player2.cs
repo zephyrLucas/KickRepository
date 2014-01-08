@@ -9,7 +9,13 @@ public class Player2 : Player {
 		xStart = 5f;
 		yStart = 8f;
 	}
+	public override void death ()
+	{
 
+		TextManager.winnerIsOne = true;
+		//GameManager.triggerGameEnd ();
+		//uncomment that so the game ends when one dies
+	}
 	protected override bool isMovingRight() {
 		if(Input.GetKey(KeyCode.L)) {
 			return true;

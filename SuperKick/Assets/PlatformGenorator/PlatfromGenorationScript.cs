@@ -43,6 +43,7 @@ public class PlatfromGenorationScript : MonoBehaviour {
 		walls.Add (init2);
 		}
 	void gameEnd(){
+		enabled = false;
 		}
 	private void innitialcreate() {
 		Transform temp = (Transform) Instantiate(platformPrefab);

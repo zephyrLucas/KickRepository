@@ -38,6 +38,7 @@ public class RockThrower : MonoBehaviour {
 		}
 		}
 	void gameEnd(){
+		enabled = false;
 		}
 	private void meteorThrower() {
 		if(rocks.Count < 4) {

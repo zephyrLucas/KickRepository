@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+//Chris made changes at line 108 for death
 public abstract class Player : PhysicsObject {
 	public CharacterController controller;
 	public Vector2 startPos;
@@ -24,19 +24,29 @@ public abstract class Player : PhysicsObject {
 	// Use this for initialization
 	
 	public override void Start () {
-		initialization ();
+		GameManager.gameEnder += gameEnd;
+		GameManager.gameStarter += gameStart;
+		enabled = false;
 
-		startPos.x = xStart;
-		startPos.y = yStart;
-		newPos = startPos;
-		transform.localPosition=startPos;
 
 
 
 	}
-
+	void gameEnd(){
+		enabled = false;
+		}
+	void gameStart(){
+		enabled = true;
+		initialization ();
+		
+		startPos.x = xStart;
+		startPos.y = yStart;
+		newPos = startPos;
+		transform.localPosition=startPos;
+		enabled = true;
+		}
 	public abstract void initialization();
-
+	public abstract void death();//called when the player hits the bottom of the screen
 	// Update is called once per frame
 	public override void Update () {
 
@@ -105,7 +115,9 @@ public abstract class Player : PhysicsObject {
 		newPos.y += GravSpeed * Time.deltaTime;
 		
 		transform.localPosition = newPos;
-
+		if (newPos.y <= AlienScript.currentHeight) {
+			death ();
+				}
 	}
 
 

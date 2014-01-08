@@ -8,7 +8,12 @@ public class Player1 : Player {
 		xStart = -5f;
 		yStart = 8f;
 	}
+	public override void death(){
 
+		TextManager.winnerIsOne = false;
+		//GameManager.triggerGameEnd ();
+		//uncomment that to make the game end when he dies.
+		}
 	protected override bool isMovingRight() {
 		if(Input.GetKey(KeyCode.D)) {
 			return true;

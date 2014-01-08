@@ -38,6 +38,7 @@ public class AlienScript : MonoBehaviour {
 		newPos = new Vector2(0f, 0f);
 		}
 	void gameEnd(){
+		enabled = false;
 		}
 
 }
