@@ -13,7 +13,7 @@ public class Player2 : Player {
 	{
 
 		TextManager.winnerIsOne = true;
-		//GameManager.triggerGameEnd ();
+		GameManager.triggerGameEnd ();
 		//uncomment that so the game ends when one dies
 	}
 	protected override bool isMovingRight() {

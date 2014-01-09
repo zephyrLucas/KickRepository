@@ -94,7 +94,7 @@ public abstract class Player : PhysicsObject {
 					Physics.Raycast(transform.position, left, out hit);
 					if (anyIsPhysics(hit.collider.GetComponents<MonoBehaviour>())) {
 						getPhysicsO(hit.collider.GetComponents<MonoBehaviour>()).addToHSpeed(-5f);
-						getPhysicsO(hit.collider.GetComponents<MonoBehaviour>()).addToVSpeed(-3f);
+						getPhysicsO(hit.collider.GetComponents<MonoBehaviour>()).addToVSpeed(-9f);
 					}
 				}
 			}
@@ -115,7 +115,7 @@ public abstract class Player : PhysicsObject {
 					Physics.Raycast(transform.position, right, out hit);
 					if (anyIsPhysics(hit.collider.GetComponents<MonoBehaviour>())) {
 						getPhysicsO(hit.collider.GetComponents<MonoBehaviour>()).addToHSpeed(5f);
-						getPhysicsO(hit.collider.GetComponents<MonoBehaviour>()).addToVSpeed(-3f);
+						getPhysicsO(hit.collider.GetComponents<MonoBehaviour>()).addToVSpeed(-9f);
 					}
 				}
 			}
@@ -131,9 +131,9 @@ public abstract class Player : PhysicsObject {
 		newPos.y += GravSpeed * Time.deltaTime;
 		
 		transform.localPosition = newPos;
-		if (newPos.y <= AlienScript.currentHeight) {
+		if (transform.localPosition.y - transform.localScale.y <= AlienScript.currentHeight) {
 			death ();
-				}
+		}
 	}
 
 

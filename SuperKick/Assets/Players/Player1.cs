@@ -11,7 +11,7 @@ public class Player1 : Player {
 	public override void death(){
 
 		TextManager.winnerIsOne = false;
-		//GameManager.triggerGameEnd ();
+		GameManager.triggerGameEnd ();
 		//uncomment that to make the game end when he dies.
 		}
 	protected override bool isMovingRight() {
