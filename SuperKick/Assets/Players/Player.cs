@@ -10,6 +10,7 @@ public abstract class Player : PhysicsObject {
 	public float xStart;
 	public float yStart;
 
+	private int doubleJump = 0;
 	//public Boost[] = new Boost[2]();
 	
 //i like turtles
@@ -53,10 +54,10 @@ public abstract class Player : PhysicsObject {
 		horizontalSp *= Mathf.Pow(.001f, Time.deltaTime);
 
 		if (isMovingRight()) {
-			horizontalSp += .75f;
+			horizontalSp += 75f * Time.deltaTime;
 			dirIsR = true;
 		} else if (isMovingLeft()) {
-			horizontalSp += -.75f;
+			horizontalSp += -75f * Time.deltaTime;
 			dirIsR = false;
 		} else {
 
@@ -64,8 +65,9 @@ public abstract class Player : PhysicsObject {
 
 		GravSpeed += gravity * Time.deltaTime;
 
-		if(isJumping()) {
+		if(isJumping() && doubleJump < 2) {
 			GravSpeed += 9f;
+			doubleJump++;
 		}
 
 
@@ -79,10 +81,11 @@ public abstract class Player : PhysicsObject {
 		if (Physics.Raycast(transform.position, down, transform.localScale.y / 2)) {
 			if( GravSpeed < 0f){
 				GravSpeed = 0f;
+				doubleJump = 0;
 			}
 		}
 
-		if(!dirIsR) {
+		if(!dirIsR && horizontalSp <= 0) {
 			if (Physics.Raycast(transform.position, left, transform.localScale.y / 2)) {
 				horizontalSp = 0;
 				if(isKicking()) {
@@ -96,7 +99,14 @@ public abstract class Player : PhysicsObject {
 				}
 			}
 		}
-		if(dirIsR) {
+
+		if(!dirIsR && horizontalSp > 0) {
+			if (Physics.Raycast(transform.position, right, transform.localScale.y / 2)) {
+				horizontalSp = 0;
+			}
+		}
+
+		if(dirIsR && horizontalSp >= 0) {
 			if (Physics.Raycast(transform.position, right, transform.localScale.y / 2)) {
 				horizontalSp = 0;
 				if(isKicking()) {
@@ -108,6 +118,12 @@ public abstract class Player : PhysicsObject {
 						getPhysicsO(hit.collider.GetComponents<MonoBehaviour>()).addToVSpeed(-3f);
 					}
 				}
+			}
+		}
+
+		if(dirIsR && horizontalSp < 0) {
+			if (Physics.Raycast(transform.position, left, transform.localScale.y / 2)) {
+				horizontalSp = 0;
 			}
 		}
 
