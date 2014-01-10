@@ -86,14 +86,14 @@ public abstract class Player : PhysicsObject {
 		}
 
 		if(!dirIsR && horizontalSp <= 0) {
-			if (Physics.Raycast(transform.position, left, transform.localScale.y / 2)) {
+			if (Physics.Raycast(transform.position, left, 5 * transform.localScale.y / 8)) {
 				horizontalSp = 0;
 				if(isKicking()) {
 					horizontalSp += 45f;
 					GravSpeed = 8f;
 					Physics.Raycast(transform.position, left, out hit);
 					if (anyIsPhysics(hit.collider.GetComponents<MonoBehaviour>())) {
-						getPhysicsO(hit.collider.GetComponents<MonoBehaviour>()).addToHSpeed(-5f);
+						getPhysicsO(hit.collider.GetComponents<MonoBehaviour>()).addToHSpeed(-45f);
 						getPhysicsO(hit.collider.GetComponents<MonoBehaviour>()).addToVSpeed(-9f);
 					}
 				}
@@ -101,20 +101,20 @@ public abstract class Player : PhysicsObject {
 		}
 
 		if(!dirIsR && horizontalSp > 0) {
-			if (Physics.Raycast(transform.position, right, transform.localScale.y / 2)) {
+			if (Physics.Raycast(transform.position, right, 5 * transform.localScale.y / 8)) {
 				horizontalSp = 0;
 			}
 		}
 
 		if(dirIsR && horizontalSp >= 0) {
-			if (Physics.Raycast(transform.position, right, transform.localScale.y / 2)) {
+			if (Physics.Raycast(transform.position, right, 5 * transform.localScale.y / 8)) {
 				horizontalSp = 0;
 				if(isKicking()) {
 					horizontalSp += -45f;
 					GravSpeed = 8f;
 					Physics.Raycast(transform.position, right, out hit);
 					if (anyIsPhysics(hit.collider.GetComponents<MonoBehaviour>())) {
-						getPhysicsO(hit.collider.GetComponents<MonoBehaviour>()).addToHSpeed(5f);
+						getPhysicsO(hit.collider.GetComponents<MonoBehaviour>()).addToHSpeed(45f);
 						getPhysicsO(hit.collider.GetComponents<MonoBehaviour>()).addToVSpeed(-9f);
 					}
 				}
@@ -122,7 +122,7 @@ public abstract class Player : PhysicsObject {
 		}
 
 		if(dirIsR && horizontalSp < 0) {
-			if (Physics.Raycast(transform.position, left, transform.localScale.y / 2)) {
+			if (Physics.Raycast(transform.position, left, 5 * transform.localScale.y / 8)) {
 				horizontalSp = 0;
 			}
 		}
