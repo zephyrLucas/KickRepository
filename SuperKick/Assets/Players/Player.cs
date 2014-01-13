@@ -11,8 +11,10 @@ public abstract class Player : PhysicsObject {
 	public float yStart;
 
 	private int doubleJump = 0;
-	//public Boost[] = new Boost[2]();
-	
+		
+	private string boost1 = "none";
+	private string boost2 = "none";
+
 //i like turtles
 	
 
@@ -96,6 +98,10 @@ public abstract class Player : PhysicsObject {
 						getPhysicsO(hit.collider.GetComponents<MonoBehaviour>()).addToHSpeed(-45f);
 						getPhysicsO(hit.collider.GetComponents<MonoBehaviour>()).addToVSpeed(-9f);
 					}
+					if (anyIsBoost(hit.collider.GetComponents<MonoBehaviour>())) {
+						boost1 = getBoostO(hit.collider.GetComponents<MonoBehaviour>()).setPow();
+					}
+
 				}
 			}
 		}
@@ -117,6 +123,9 @@ public abstract class Player : PhysicsObject {
 						getPhysicsO(hit.collider.GetComponents<MonoBehaviour>()).addToHSpeed(45f);
 						getPhysicsO(hit.collider.GetComponents<MonoBehaviour>()).addToVSpeed(-9f);
 					}
+					if (anyIsBoost(hit.collider.GetComponents<MonoBehaviour>())) {
+						boost2 = getBoostO(hit.collider.GetComponents<MonoBehaviour>()).setPow();
+					}
 				}
 			}
 		}
@@ -125,6 +134,14 @@ public abstract class Player : PhysicsObject {
 			if (Physics.Raycast(transform.position, left, 5 * transform.localScale.y / 8)) {
 				horizontalSp = 0;
 			}
+		}
+
+
+		if (isUsingBoost1()) {
+			Boost.executePow(boost1, this);
+		}
+		if (isUsingBoost2()) {
+			Boost.executePow(boost2, this);
 		}
 
 		newPos.x += horizontalSp * Time.deltaTime;
@@ -154,6 +171,30 @@ public abstract class Player : PhysicsObject {
 			}
 		}
 		return null;
+	}
+
+
+	private bool anyIsBoost(MonoBehaviour[] stuff) {
+		bool any = false;
+		if(stuff.Length != 0) {
+			foreach (MonoBehaviour script in stuff) {
+				any = any || (script is Boost);
+			}
+		}
+		return any;
+	}
+	
+	private Boost getBoostO(MonoBehaviour[] morestuff) {
+		foreach (MonoBehaviour script in morestuff) {
+			if(script is Boost) {
+				return ((Boost) script);
+			}
+		}
+		return null;
+	}
+
+	public void superJump() {
+		GravSpeed += 30;
 	}
 
 		protected abstract bool isMovingRight();
