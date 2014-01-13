@@ -54,7 +54,7 @@ public class PlatfromGenorationScript : MonoBehaviour {
 	}
 	public void boostGenerate(){
 		boostPos = nextPos;
-		float chance = Random.Range (1, 1000);//place holder, 1 in x chance of generating a boost
+		float chance = Random.Range (1, 729);//place holder, 1 in x chance of generating a boost
 		if (chance == 3) {
 			Transform newBoost=(Transform)Instantiate(boostPrefab);
 			boostPos.y+=1;
@@ -71,7 +71,7 @@ public class PlatfromGenorationScript : MonoBehaviour {
 			temp.localPosition = nextPos;
 
 		}
-		while(walls.Count < 6) {
+		while(walls.Count < 20) {
 			Transform tempL=(Transform) Instantiate(wallPrefab);
 			Transform tempR=(Transform) Instantiate (wallPrefab);
 			tempR.localPosition=wallPosRight;

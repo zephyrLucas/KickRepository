@@ -139,9 +139,11 @@ public abstract class Player : PhysicsObject {
 
 		if (isUsingBoost1()) {
 			Boost.executePow(boost1, this);
+			boost1 = "none";
 		}
 		if (isUsingBoost2()) {
 			Boost.executePow(boost2, this);
+			boost2 = "none";
 		}
 
 		newPos.x += horizontalSp * Time.deltaTime;
