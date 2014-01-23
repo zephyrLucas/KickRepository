@@ -3,7 +3,7 @@ using System.Collections;
 
 public class RockThrower : MonoBehaviour {
 
-	public Transform rockPrefab;
+	public static Transform rockPrefab;
 	private float time;
 
 	private Vector2 nextPos;

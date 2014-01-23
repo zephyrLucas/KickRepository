@@ -12,6 +12,11 @@ public class RockCode : PhysicsObject {
 		horizontalSp = Random.Range(-3, 3);
 		GravSpeed = Random.Range(-4, 1);
 	}
+
+	public void setSpeed(float x, float y) {
+		horizontalSp = x;
+		GravSpeed = y;
+	}
 	
 	// Update is called once per frame
 	public override void Update () {

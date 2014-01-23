@@ -52,7 +52,7 @@ public class Player2 : Player {
 	}
 	
 	protected override bool isUsingBoost2() {
-		if(Input.GetKeyDown(KeyCode.DownArrow)) {
+		if(Input.GetKeyDown(KeyCode.LeftArrow)) {
 			return true;
 		}
 		return false;

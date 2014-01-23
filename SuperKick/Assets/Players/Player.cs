@@ -199,6 +199,14 @@ public abstract class Player : PhysicsObject {
 		GravSpeed += 30;
 	}
 
+	public void makeRock() {
+		Transform temp = (Transform) Instantiate(RockThrower.rockPrefabb);
+		nextPos.x = transform.localPosition.x;
+		nextPos.y = transform.localPosition.y;
+		//more here
+		temp.localPosition = nextPos;
+	}
+
 		protected abstract bool isMovingRight();
 		protected abstract bool isMovingLeft();
 		protected abstract bool isJumping();
