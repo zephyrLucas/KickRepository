@@ -5,6 +5,11 @@ public class AlienScript : MonoBehaviour {
 
 	public static float currentHeight;
 
+	private float speedCurrent = 2f;
+	private float speedTarget = 2f;
+	private float maxTimeChange = 10f;
+	private float timed = 0f;
+
 	private Vector2 newPos;
 
 	// Use this for initialization
@@ -26,8 +31,19 @@ public class AlienScript : MonoBehaviour {
 //				}
 //		}
 	// Update is called once per frame
+
+
 	void Update () {
-		float increase = Time.deltaTime * 2f;
+
+		timed += Time.deltaTime;
+		if (timed >= maxTimeChange) {
+			timed = 0;
+			speedTarget = Mathf.Pow(2f, Random.Range(-2f, 2.7f));
+		}
+
+		speedCurrent = speedCurrent + (speedTarget - speedCurrent) * Time.deltaTime;
+
+		float increase = Time.deltaTime * speedCurrent;
 		currentHeight += increase;
 		newPos.y = currentHeight;
 		transform.localPosition = newPos;
