@@ -200,11 +200,11 @@ public abstract class Player : PhysicsObject {
 	}
 
 	public void makeRock() {
-		//Transform temp = (Transform) Instantiate(RockThrower.rockPrefabb);
-		//nextPos.x = transform.localPosition.x;
-		//nextPos.y = transform.localPosition.y;
+		//Transform temp = (Transform) Instantiate(RockThrower.rockPrefab);
 		//more here
-		//temp.localPosition = nextPos;
+
+
+		//temp.localPosition = new Vector2(transform.localPosition.x, transform.localPosition.y);
 	}
 
 		protected abstract bool isMovingRight();
