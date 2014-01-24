@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class Boost : MonoBehaviour {
@@ -7,7 +7,8 @@ public class Boost : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		type = "AIRJUMPER";
+		type = "ROCKTHROWER";
+		//type = "AIRJUMPER";
 	}
 	
 	// Update is called once per frame
@@ -25,6 +26,9 @@ public class Boost : MonoBehaviour {
 	public static void executePow(string useType, Player pl) {
 		if (useType == "AIRJUMPER") {
 			pl.superJump();
+		}
+		if (useType == "ROCKTHROWER") {
+			pl.makeRock();
 		}
 	}
 }
