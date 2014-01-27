@@ -7,8 +7,8 @@ public class Boost : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		type = "FROSTBREATHER";
-		//type = "ROCKTHROWER";
+		//type = "FROSTBREATHER";
+		type = "ROCKTHROWER";
 		//type = "AIRJUMPER";
 	}
 	
