@@ -36,7 +36,7 @@ public class RockThrower : MonoBehaviour {
 			nextPos.y = -10f;
 			temp.localPosition = nextPos;
 		}
-		}
+	}
 	void gameEnd(){
 		enabled = false;
 		}
@@ -52,6 +52,7 @@ public class RockThrower : MonoBehaviour {
 		nextPos.x = Random.Range(-10, 10);
 		nextPos.y = (float) (Random.Range(12, 20) + ((int) AlienScript.currentHeight));
 		temp.localPosition = nextPos;
+		temp.GetComponent<RockCode>().setSpeed(Random.Range(-3, 3), Random.Range(-4, 1));
 	}
 	
 

@@ -151,7 +151,7 @@ public abstract class Player : PhysicsObject {
 		
 		transform.localPosition = newPos;
 		if (transform.localPosition.y - transform.localScale.y <= AlienScript.currentHeight) {
-			death();
+			//death();
 		}
 
 		if(Mathf.Abs(transform.localPosition.x) >= 10) {
@@ -206,7 +206,7 @@ public abstract class Player : PhysicsObject {
 	}
 
 	public void makeRock() {
-		Transform temp = GameObject.Find("RockGenerator").GetComponent<RockThrower>().rockPrefab;
+		Transform temp = (Transform) Instantiate(GameObject.Find("RockGenerator").GetComponent<RockThrower>().rockPrefab);
 
 		temp.GetComponent<RockCode>().setSpeed(horizontalSp * 4, 0);
 		temp.localPosition = new Vector2(transform.localPosition.x, transform.localPosition.y);

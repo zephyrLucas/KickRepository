@@ -9,8 +9,6 @@ public class RockCode : PhysicsObject {
 	// Use this for initialization
 	public override void Start () {
 		nextPos = this.transform.localPosition;
-		horizontalSp = Random.Range(-3, 3);
-		GravSpeed = Random.Range(-4, 1);
 	}
 
 	public void setSpeed(float x, float y) {
