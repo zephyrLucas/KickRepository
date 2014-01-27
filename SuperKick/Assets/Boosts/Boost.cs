@@ -7,7 +7,8 @@ public class Boost : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		type = "ROCKTHROWER";
+		type = "FROSTBREATHER";
+		//type = "ROCKTHROWER";
 		//type = "AIRJUMPER";
 	}
 	
@@ -29,6 +30,9 @@ public class Boost : MonoBehaviour {
 		}
 		if (useType == "ROCKTHROWER") {
 			pl.makeRock();
+		}
+		if (useType == "FROSTBREATHER") {
+			pl.makeCold();
 		}
 	}
 }

@@ -2,6 +2,9 @@
 using System.Collections;
 //Chris made changes at line 108 for death
 public abstract class Player : PhysicsObject {
+
+	public static float isCold = 0f;
+
 	public CharacterController controller;
 	public Vector2 startPos;
 	private Vector2 newPos;
@@ -53,7 +56,13 @@ public abstract class Player : PhysicsObject {
 	// Update is called once per frame
 	public override void Update () {
 
-		horizontalSp *= Mathf.Pow(.001f, Time.deltaTime);
+		if(isCold > 0f) {
+			horizontalSp *= Mathf.Pow(.999f, Time.deltaTime);
+			isCold -= (Time.deltaTime / 2f);
+			print("dfhsk");
+		} else {
+			horizontalSp *= Mathf.Pow(.001f, Time.deltaTime);
+		}
 
 		if (isMovingRight()) {
 			horizontalSp += 75f * Time.deltaTime;
@@ -210,7 +219,10 @@ public abstract class Player : PhysicsObject {
 
 		temp.GetComponent<RockCode>().setSpeed(horizontalSp * 4, 0);
 		temp.localPosition = new Vector2(transform.localPosition.x, transform.localPosition.y);
-		print("hagendaas");
+	}
+
+	public void makeCold() {
+		isCold += 5f;
 	}
 
 		protected abstract bool isMovingRight();
