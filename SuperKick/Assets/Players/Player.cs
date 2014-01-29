@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEditor;
 using System.Collections;
 //Chris made changes at line 108 for death
 public abstract class Player : PhysicsObject {
@@ -59,7 +60,15 @@ public abstract class Player : PhysicsObject {
 		if(isCold > 0f) {
 			horizontalSp *= Mathf.Pow(.999f, Time.deltaTime);
 			isCold -= (Time.deltaTime / 2f);
-			print("dfhsk");
+
+			if(isCold <= 0f) {
+				GameObject[] plats = GameObject.FindGameObjectsWithTag("platform");
+			
+				foreach (GameObject plat in plats) {
+					plat.transform.renderer.material = AssetDatabase.LoadAssetAtPath("Assets/PlatformGenorator/ForceFieldy.mat", typeof(Material)) as Material;
+				}
+				GameObject.Find("PlatformGenerator").GetComponent<PlatfromGenorationScript>().platformPrefab.renderer.material = AssetDatabase.LoadAssetAtPath("Assets/PlatformGenorator/ForceFieldy.mat", typeof(Material)) as Material;
+			}
 		} else {
 			horizontalSp *= Mathf.Pow(.001f, Time.deltaTime);
 		}
@@ -223,6 +232,12 @@ public abstract class Player : PhysicsObject {
 
 	public void makeCold() {
 		isCold += 5f;
+
+		GameObject[] plats = GameObject.FindGameObjectsWithTag("platform");
+		foreach (GameObject plat in plats) {
+			plat.transform.renderer.material = AssetDatabase.LoadAssetAtPath("Assets/PlatformGenorator/IceyForce.mat", typeof(Material)) as Material;
+		}
+		GameObject.Find("PlatformGenerator").GetComponent<PlatfromGenorationScript>().platformPrefab.renderer.material = AssetDatabase.LoadAssetAtPath("Assets/PlatformGenorator/IceyForce.mat", typeof(Material)) as Material;
 	}
 
 		protected abstract bool isMovingRight();
