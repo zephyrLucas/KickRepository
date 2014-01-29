@@ -28,12 +28,19 @@ public class GameManager : MonoBehaviour {
 	void Update(){
 		if (Input.GetKeyUp ("space") && !isRunning&&!hasRun) {
 						//	print ("space was hit");
+			print ("first condition");
 						triggerGameStart ();
 						isRunning = true;
 				}
 		if (Input.GetKeyUp ("space") && !isRunning && hasRun) {
-			Application.LoadLevel(Application.loadedLevel);
+			print ("hit space");
+			StartCoroutine(swapScene ());
 				}
 	}
+	IEnumerator swapScene(){
+		print ("called method");
+		yield return new WaitForEndOfFrame();
+		Application.LoadLevel("MenuScene");
+		}
 
 }

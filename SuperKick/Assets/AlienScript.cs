@@ -49,6 +49,7 @@ public class AlienScript : MonoBehaviour {
 		transform.localPosition = newPos;
 	}
 	void gameStart(){
+		if(this!=null)
 		enabled = true;
 		currentHeight = 0f;
 		newPos = new Vector2(0f, 0f);
