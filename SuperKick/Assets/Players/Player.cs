@@ -231,7 +231,7 @@ public abstract class Player : PhysicsObject {
 	}
 
 	public void makeCold() {
-		isCold += 5f;
+		isCold += 8f;
 
 		GameObject[] plats = GameObject.FindGameObjectsWithTag("platform");
 		foreach (GameObject plat in plats) {

@@ -37,49 +37,49 @@ public class RockCode : PhysicsObject {
 		float y = 0f;
 
 
-		if (Physics.Raycast(transform.position, down, transform.localScale.y / 2)) {
+		if (Physics.Raycast(transform.position, down, 9 * transform.localScale.y / 16)) {
 			Physics.Raycast(transform.position, down, out hit);
 			x = 0f;
 			y = -1f;
 			smash (hit, y, x);
 		}
-		if (Physics.Raycast(transform.position, up, transform.localScale.y / 2)) {
+		if (Physics.Raycast(transform.position, up, 9 * transform.localScale.y / 16)) {
 			Physics.Raycast(transform.position, up, out hit);
 			x = 0f;
 			y = 1f;
 			smash (hit, y, x);
 		}
-		if (Physics.Raycast(transform.position, left, transform.localScale.y / 2)) {
+		if (Physics.Raycast(transform.position, left, 9 * transform.localScale.y / 16)) {
 			Physics.Raycast(transform.position, left, out hit);
 			x = -1f;
 			y = 0f;
 			smash (hit, y, x);
 		}
-		if (Physics.Raycast(transform.position, right, transform.localScale.y / 2)) {
+		if (Physics.Raycast(transform.position, right, 9 * transform.localScale.y / 16)) {
 			Physics.Raycast(transform.position, right, out hit);
 			x = 1f;
 			y = 0f;
 			smash (hit, y, x);
 		}
-		if (Physics.Raycast(transform.position, Uleft, transform.localScale.y / 2)) {
+		if (Physics.Raycast(transform.position, Uleft, 9 * transform.localScale.y / 16)) {
 			Physics.Raycast(transform.position, Uleft, out hit);
 			x = -1f;
 			y = 1f;
 			smash (hit, y, x);
 		}
-		if (Physics.Raycast(transform.position, Uright, transform.localScale.y / 2)) {
+		if (Physics.Raycast(transform.position, Uright, 9 * transform.localScale.y / 16)) {
 			Physics.Raycast(transform.position, Uright, out hit);
 			x = 1;
 			y = 1;
 			smash (hit, y, x);
 		}
-		if (Physics.Raycast(transform.position, Dleft, transform.localScale.y / 2)) {
+		if (Physics.Raycast(transform.position, Dleft, 9 * transform.localScale.y / 16)) {
 			Physics.Raycast(transform.position, Dleft, out hit);
 			x = -1f;
 			y = -1f;
 			smash (hit, y, x);
 		}
-		if (Physics.Raycast(transform.position, Dright, transform.localScale.y / 2)) {
+		if (Physics.Raycast(transform.position, Dright, 9 * transform.localScale.y / 16)) {
 			Physics.Raycast(transform.position, Dright, out hit);
 			x = 1f;
 			y = -1f;
@@ -95,11 +95,10 @@ public class RockCode : PhysicsObject {
 			if(stuff.Length != 0) {
 				foreach (MonoBehaviour script in stuff) {
 					if((script is PhysicsObject) && (!any)) {
-						((PhysicsObject) script).addToHSpeed(x * Mathf.Abs(horizontalSp) * 2f);
-						((PhysicsObject) script).addToVSpeed(y * Mathf.Abs(GravSpeed) * 2f);
-
+						((PhysicsObject) script).addToHSpeed(x * Mathf.Abs(horizontalSp) * 3f);
+						((PhysicsObject) script).addToVSpeed(y * Mathf.Abs(GravSpeed) * 3f);
+						any = true;;
 					}
-					any = true;
 				}
 			}
 		}

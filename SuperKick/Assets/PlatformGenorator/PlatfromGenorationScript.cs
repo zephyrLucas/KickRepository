@@ -30,7 +30,7 @@ public class PlatfromGenorationScript : MonoBehaviour {
 	void gameStart(){
 		enabled = true;
 
-		//platformPrefab.renderer.material = AssetDatabase.LoadAssetAtPath("Assets/PlatformGenorator/ForceFieldy", typeof(Material)) as Material;
+		platformPrefab.renderer.material = AssetDatabase.LoadAssetAtPath("Assets/PlatformGenorator/ForceFieldy.mat", typeof(Material)) as Material;
 
 		wallPosLeft.x = -10;
 		wallPosLeft.y = 5;
