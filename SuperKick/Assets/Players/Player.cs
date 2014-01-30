@@ -19,6 +19,7 @@ public abstract class Player : PhysicsObject {
 	private string boost1 = "none";
 	private string boost2 = "none";
 
+	private float raycastModifier = .36f;
 //i like turtles
 	
 
@@ -98,7 +99,7 @@ public abstract class Player : PhysicsObject {
 
 		RaycastHit hit;
 
-		if (Physics.Raycast(transform.position, down, transform.localScale.y / 2)) {
+		if (Physics.Raycast(transform.position, down, transform.localScale.y / 2 * raycastModifier)) {
 			if( GravSpeed < 0f){
 				GravSpeed = 0f;
 				doubleJump = 0;
@@ -106,7 +107,7 @@ public abstract class Player : PhysicsObject {
 		}
 
 		if(!dirIsR && horizontalSp <= 0) {
-			if (Physics.Raycast(transform.position, left, 5 * transform.localScale.y / 8)) {
+			if (Physics.Raycast(transform.position, left, 5 * transform.localScale.y / 8 * raycastModifier)) {
 				horizontalSp = 0;
 				if(isKicking()) {
 					horizontalSp += 45f;
@@ -125,13 +126,13 @@ public abstract class Player : PhysicsObject {
 		}
 
 		if(!dirIsR && horizontalSp > 0) {
-			if (Physics.Raycast(transform.position, right, 5 * transform.localScale.y / 8)) {
+			if (Physics.Raycast(transform.position, right, 5 * transform.localScale.y / 8 * raycastModifier)) {
 				horizontalSp = 0;
 			}
 		}
 
 		if(dirIsR && horizontalSp >= 0) {
-			if (Physics.Raycast(transform.position, right, 5 * transform.localScale.y / 8)) {
+			if (Physics.Raycast(transform.position, right, 5 * transform.localScale.y / 8 * raycastModifier)) {
 				horizontalSp = 0;
 				if(isKicking()) {
 					horizontalSp += -45f;
@@ -149,7 +150,7 @@ public abstract class Player : PhysicsObject {
 		}
 
 		if(dirIsR && horizontalSp < 0) {
-			if (Physics.Raycast(transform.position, left, 5 * transform.localScale.y / 8)) {
+			if (Physics.Raycast(transform.position, left, 5 * transform.localScale.y / 8 * raycastModifier)) {
 				horizontalSp = 0;
 			}
 		}
