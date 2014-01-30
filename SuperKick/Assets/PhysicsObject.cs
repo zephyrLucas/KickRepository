@@ -19,4 +19,12 @@ public abstract class PhysicsObject : MonoBehaviour {
 	public void addToVSpeed(float x) {
 		GravSpeed += x;
 	}
+
+	public void setHSpeed(float x) {
+		horizontalSp = x;
+	}
+	
+	public void setVSpeed(float x) {
+		GravSpeed = x;
+	}
 }
