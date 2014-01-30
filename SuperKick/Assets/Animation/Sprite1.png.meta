@@ -1810,7 +1810,7 @@ TextureImporter:
         serializedVersion: 2
         x: 552
         y: 1590
-        width: 128
+        width: 60
         height: 64
       alignment: 7
       pivot: {x: .5, y: 0}
@@ -3954,6 +3954,15 @@ TextureImporter:
         y: 2354
         width: 39
         height: 71
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Sprite1_435
+      rect:
+        serializedVersion: 2
+        x: 612
+        y: 1592
+        width: 65
+        height: 62
       alignment: 0
       pivot: {x: .5, y: .5}
   spritePackingTag: 
