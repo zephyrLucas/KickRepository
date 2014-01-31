@@ -3819,8 +3819,8 @@ TextureImporter:
         y: 2548
         width: 54
         height: 42
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 7
+      pivot: {x: .5, y: 0}
     - name: Sprite1_420
       rect:
         serializedVersion: 2
@@ -3828,8 +3828,8 @@ TextureImporter:
         y: 2549
         width: 53
         height: 44
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 7
+      pivot: {x: .5, y: 0}
     - name: Sprite1_421
       rect:
         serializedVersion: 2
@@ -3837,8 +3837,8 @@ TextureImporter:
         y: 2549
         width: 49
         height: 46
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 7
+      pivot: {x: .5, y: 0}
     - name: Sprite1_422
       rect:
         serializedVersion: 2
@@ -3846,8 +3846,8 @@ TextureImporter:
         y: 2548
         width: 50
         height: 51
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 7
+      pivot: {x: .5, y: 0}
     - name: Sprite1_423
       rect:
         serializedVersion: 2
@@ -3855,8 +3855,8 @@ TextureImporter:
         y: 2549
         width: 59
         height: 50
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 7
+      pivot: {x: .5, y: 0}
     - name: Sprite1_424
       rect:
         serializedVersion: 2
@@ -3864,8 +3864,8 @@ TextureImporter:
         y: 2551
         width: 55
         height: 47
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 7
+      pivot: {x: .5, y: 0}
     - name: Sprite1_425
       rect:
         serializedVersion: 2
@@ -3882,8 +3882,8 @@ TextureImporter:
         y: 2551
         width: 44
         height: 39
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 7
+      pivot: {x: .5, y: 0}
     - name: Sprite1_427
       rect:
         serializedVersion: 2
@@ -3891,8 +3891,8 @@ TextureImporter:
         y: 2500
         width: 49
         height: 49
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 7
+      pivot: {x: .5, y: 0}
     - name: Sprite1_428
       rect:
         serializedVersion: 2
@@ -3900,8 +3900,8 @@ TextureImporter:
         y: 2498
         width: 56
         height: 52
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 7
+      pivot: {x: .5, y: 0}
     - name: Sprite1_429
       rect:
         serializedVersion: 2
