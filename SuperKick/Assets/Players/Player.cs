@@ -21,7 +21,8 @@ public abstract class Player : PhysicsObject {
 
 	private float raycastModifier = .36f;
 //i like turtles
-	
+
+	private Animator animator;
 
 	private float gravity = -9.8f;
 	//private float GravSpeed;
@@ -34,10 +35,9 @@ public abstract class Player : PhysicsObject {
 	public override void Start () {
 		GameManager.gameEnder += gameEnd;
 		GameManager.gameStarter += gameStart;
+		animator = this.gameObject.GetComponent<Animator>();
+
 		enabled = false;
-
-
-
 
 	}
 	void gameEnd(){
@@ -77,11 +77,16 @@ public abstract class Player : PhysicsObject {
 		if (isMovingRight()) {
 			horizontalSp += 75f * Time.deltaTime;
 			dirIsR = true;
+			animator.SetBool("IsRunning", true);
+			transform.localScale = (new  Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, 1));
+
 		} else if (isMovingLeft()) {
 			horizontalSp += -75f * Time.deltaTime;
 			dirIsR = false;
+			animator.SetBool("IsRunning", true);
+			transform.localScale = (new  Vector3(Mathf.Abs(transform.localScale.x) * -1f, transform.localScale.y, 1));
 		} else {
-
+			animator.SetBool("IsRunning", false);
 		}
 
 		GravSpeed += gravity * Time.deltaTime;

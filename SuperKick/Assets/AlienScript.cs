@@ -12,6 +12,8 @@ public class AlienScript : MonoBehaviour {
 
 	private Vector2 newPos;
 
+	private bool playtestmode = true;
+
 	// Use this for initialization
 	void Start () {
 		GameManager.gameStarter += gameStart;
@@ -39,6 +41,9 @@ public class AlienScript : MonoBehaviour {
 		if (timed >= maxTimeChange) {
 			timed = 0;
 			speedTarget = Mathf.Pow(2f, Random.Range(-2f, 2.7f));
+			if (playtestmode) {
+				speedTarget = Mathf.Pow(2f, -3f);
+			}
 		}
 
 		speedCurrent = speedCurrent + (speedTarget - speedCurrent) * Time.deltaTime;
