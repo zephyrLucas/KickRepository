@@ -10,6 +10,9 @@ public abstract class Player : PhysicsObject {
 	public Vector2 startPos;
 	private Vector2 newPos;
 
+	public GUIText boost1Txt;
+	public GUIText boost2Txt;
+
 	public Vector2 kickCast;
 	public float xStart;
 	public float yStart;
@@ -36,6 +39,9 @@ public abstract class Player : PhysicsObject {
 		GameManager.gameEnder += gameEnd;
 		GameManager.gameStarter += gameStart;
 		animator = this.gameObject.GetComponent<Animator>();
+
+		boost1Txt.guiText.text = boost1;
+		boost2Txt.guiText.text = boost2;
 
 		enabled = false;
 
@@ -124,6 +130,7 @@ public abstract class Player : PhysicsObject {
 					}
 					if (anyIsBoost(hit.collider.GetComponents<MonoBehaviour>())) {
 						boost1 = getBoostO(hit.collider.GetComponents<MonoBehaviour>()).setPow();
+						boost1Txt.guiText.text = boost1;
 					}
 
 				}
@@ -149,6 +156,7 @@ public abstract class Player : PhysicsObject {
 					}
 					if (anyIsBoost(hit.collider.GetComponents<MonoBehaviour>())) {
 						boost2 = getBoostO(hit.collider.GetComponents<MonoBehaviour>()).setPow();
+						boost2Txt.guiText.text = boost2;
 					}
 				}
 			}
@@ -164,10 +172,12 @@ public abstract class Player : PhysicsObject {
 		if (isUsingBoost1()) {
 			Boost.executePow(boost1, this);
 			boost1 = "none";
+			boost1Txt.guiText.text = boost1;
 		}
 		if (isUsingBoost2()) {
 			Boost.executePow(boost2, this);
 			boost2 = "none";
+			boost2Txt.guiText.text = boost2;
 		}
 
 		newPos.x += horizontalSp * Time.deltaTime;

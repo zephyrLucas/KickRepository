@@ -5,11 +5,11 @@ public class Boost : MonoBehaviour {
 
 	public string type;
 
+	private static string[] Total = {"FROSTBREATHER", "ROCKTHROWER", "AIRJUMPER"};
+
 	// Use this for initialization
 	void Start () {
-		type = "FROSTBREATHER";
-		//type = "ROCKTHROWER";
-		//type = "AIRJUMPER";
+		type = Total.GetValue(Random.Range(0, 2)) as string;
 	}
 	
 	// Update is called once per frame
