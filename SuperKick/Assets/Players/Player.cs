@@ -17,6 +17,8 @@ public abstract class Player : PhysicsObject {
 	public float xStart;
 	public float yStart;
 
+	private bool grounded = true;
+
 	private int doubleJump = 0;
 		
 	private string boost1 = "none";
@@ -100,6 +102,7 @@ public abstract class Player : PhysicsObject {
 		if(isJumping() && doubleJump < 2) {
 			GravSpeed += 9f;
 			doubleJump++;
+			animator.SetTrigger("jumpTrig");
 		}
 
 
@@ -114,6 +117,14 @@ public abstract class Player : PhysicsObject {
 			if( GravSpeed < 0f){
 				GravSpeed = 0f;
 				doubleJump = 0;
+				animator.SetBool("isFalling", false);
+				if(!grounded) {
+					animator.SetTrigger("hitGround");
+				}
+				grounded = true;
+			} else {
+				animator.SetBool("isFalling", true);
+				grounded = false;
 			}
 		}
 
@@ -121,6 +132,7 @@ public abstract class Player : PhysicsObject {
 			if (Physics.Raycast(transform.position, left, 5 * transform.localScale.y / 8 * raycastModifier)) {
 				horizontalSp = 0;
 				if(isKicking()) {
+					animator.SetTrigger("KickTrig");
 					horizontalSp += 45f;
 					GravSpeed = 8f;
 					Physics.Raycast(transform.position, left, out hit);
@@ -147,6 +159,7 @@ public abstract class Player : PhysicsObject {
 			if (Physics.Raycast(transform.position, right, 5 * transform.localScale.y / 8 * raycastModifier)) {
 				horizontalSp = 0;
 				if(isKicking()) {
+					animator.SetTrigger("KickTrig");
 					horizontalSp += -45f;
 					GravSpeed = 8f;
 					Physics.Raycast(transform.position, right, out hit);
