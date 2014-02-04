@@ -5,6 +5,7 @@ using System.Collections;
 public abstract class Player : PhysicsObject {
 
 	public static float isCold = 0f;
+	public static float mindBend = 1f;
 
 	public CharacterController controller;
 	public Vector2 startPos;
@@ -82,14 +83,18 @@ public abstract class Player : PhysicsObject {
 			horizontalSp *= Mathf.Pow(.001f, Time.deltaTime);
 		}
 
+		if (mindBend < 1f) {
+			mindBend += Time.deltaTime;
+		}
+
 		if (isMovingRight()) {
-			horizontalSp += 75f * Time.deltaTime;
+			horizontalSp += 75f * Time.deltaTime * mindBend;
 			dirIsR = true;
 			animator.SetBool("IsRunning", true);
 			transform.localScale = (new  Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, 1));
 
 		} else if (isMovingLeft()) {
-			horizontalSp += -75f * Time.deltaTime;
+			horizontalSp += -75f * Time.deltaTime * mindBend;
 			dirIsR = false;
 			animator.SetBool("IsRunning", true);
 			transform.localScale = (new  Vector3(Mathf.Abs(transform.localScale.x) * -1f, transform.localScale.y, 1));
@@ -98,8 +103,6 @@ public abstract class Player : PhysicsObject {
 		}
 
 		GravSpeed += gravity * Time.deltaTime;
-		animator.SetBool("isFalling", true);
-		grounded = false;
 
 
 		if(isJumping() && doubleJump < 2) {
@@ -270,6 +273,10 @@ public abstract class Player : PhysicsObject {
 			plat.transform.renderer.material = AssetDatabase.LoadAssetAtPath("Assets/PlatformGenorator/IceyForce.mat", typeof(Material)) as Material;
 		}
 		GameObject.Find("PlatformGenerator").GetComponent<PlatfromGenorationScript>().platformPrefab.renderer.material = AssetDatabase.LoadAssetAtPath("Assets/PlatformGenorator/IceyForce.mat", typeof(Material)) as Material;
+	}
+
+	public void bendYourMind() {
+		mindBend -= 3f;
 	}
 
 		protected abstract bool isMovingRight();

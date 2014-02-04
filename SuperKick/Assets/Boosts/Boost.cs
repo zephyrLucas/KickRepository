@@ -5,11 +5,11 @@ public class Boost : MonoBehaviour {
 
 	public string type;
 
-	private static string[] Total = {"FROSTBREATHER", "ROCKTHROWER", "AIRJUMPER"};
+	private static string[] Total = {"FROSTBREATHER", "ROCKTHROWER", "AIRJUMPER", "MINDBENDER"};
 
 	// Use this for initialization
 	void Start () {
-		type = Total.GetValue(Random.Range(0, 2)) as string;
+		type = Total.GetValue(Random.Range(0, 4)) as string;
 	}
 	
 	// Update is called once per frame
@@ -33,6 +33,9 @@ public class Boost : MonoBehaviour {
 		}
 		if (useType == "FROSTBREATHER") {
 			pl.makeCold();
+		}
+		if (useType == "MINDBENDER") {
+			pl.bendYourMind();
 		}
 	}
 }
