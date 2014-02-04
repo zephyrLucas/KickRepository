@@ -802,7 +802,7 @@ TextureImporter:
         serializedVersion: 2
         x: 599
         y: 2354
-        width: 46
+        width: 45
         height: 28
       alignment: 0
       pivot: {x: .5, y: .5}
@@ -3995,18 +3995,18 @@ TextureImporter:
     - name: Sprite1_439
       rect:
         serializedVersion: 2
-        x: 644
+        x: 646
         y: 2354
-        width: 48
+        width: 44
         height: 32
       alignment: 0
       pivot: {x: .5, y: .5}
     - name: Sprite1_440
       rect:
         serializedVersion: 2
-        x: 691
+        x: 692
         y: 2354
-        width: 45
+        width: 44
         height: 36
       alignment: 0
       pivot: {x: .5, y: .5}

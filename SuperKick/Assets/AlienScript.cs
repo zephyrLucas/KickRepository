@@ -12,7 +12,7 @@ public class AlienScript : MonoBehaviour {
 
 	private Vector2 newPos;
 
-	private bool playtestmode = false;
+	public bool playtestmode = false;
 
 	// Use this for initialization
 	void Start () {

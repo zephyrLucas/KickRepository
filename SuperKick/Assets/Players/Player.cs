@@ -98,6 +98,9 @@ public abstract class Player : PhysicsObject {
 		}
 
 		GravSpeed += gravity * Time.deltaTime;
+		animator.SetBool("isFalling", true);
+		grounded = false;
+
 
 		if(isJumping() && doubleJump < 2) {
 			GravSpeed += 9f;
