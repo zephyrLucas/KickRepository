@@ -13,10 +13,12 @@ public class PlatfromGenorationScript : MonoBehaviour {
 	public Vector2 wallPosLeft;
 	public Vector2 wallPosRight;
 	public Vector2 boostPos;
+	private GameManager GameManager;
 
 	public bool extraBoost = false;
 	// Use this for initialization
 	void Start () {
+		GameManager = GameObject.Find ("GameManager").GetComponent<GameManager>();
 		GameManager.gameStarter += gameStart;
 		GameManager.gameEnder += gameEnd;
 		enabled = false;
@@ -50,7 +52,7 @@ public class PlatfromGenorationScript : MonoBehaviour {
 		}
 	void gameEnd(){
 		enabled = false;
-		}
+	}
 	private void innitialcreate() {
 		Transform temp = (Transform) Instantiate(platformPrefab);
 		platforms.Add(temp);

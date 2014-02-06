@@ -13,9 +13,12 @@ public class AlienScript : MonoBehaviour {
 	private Vector2 newPos;
 
 	public bool playtestmode = false;
+	private GameManager GameManager;
 
 	// Use this for initialization
 	void Start () {
+
+		GameManager = GameObject.Find ("GameManager").GetComponent<GameManager>();
 		GameManager.gameStarter += gameStart;
 		GameManager.gameEnder += gameEnd;
 		enabled = false;

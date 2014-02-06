@@ -36,9 +36,12 @@ public abstract class Player : PhysicsObject {
 	//private float horizontalSp;
 	private bool dirIsR = true;
 
+	protected GameManager GameManager;
+
 	// Use this for initialization
 	
 	public override void Start () {
+		GameManager = GameObject.Find ("GameManager").GetComponent<GameManager>();
 		GameManager.gameEnder += gameEnd;
 		GameManager.gameStarter += gameStart;
 		animator = this.gameObject.GetComponent<Animator>();
@@ -51,6 +54,7 @@ public abstract class Player : PhysicsObject {
 	}
 	void gameEnd(){
 		enabled = false;
+		//GameManager.gameStarter -= gameStart;
 		}
 	void gameStart(){
 		enabled = true;
@@ -60,7 +64,7 @@ public abstract class Player : PhysicsObject {
 		startPos.y = yStart;
 		newPos = startPos;
 		transform.localPosition=startPos;
-		enabled = true;
+		//enabled = true;
 		}
 	public abstract void initialization();
 	public abstract void death();//called when the player hits the bottom of the screen

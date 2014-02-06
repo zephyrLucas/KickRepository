@@ -7,8 +7,10 @@ public class TextManager : MonoBehaviour {
 	public GUIText victorTwo;
 
 	public static bool winnerIsOne;
+	private GameManager GameManager;
 	// Use this for initialization
 	void Start () {
+		GameManager = GameObject.Find ("GameManager").GetComponent<GameManager>();
 		GameManager.gameEnder += gameEnd;
 		GameManager.gameStarter += gameStart;
 		startInfo.enabled = true;

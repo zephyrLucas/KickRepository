@@ -9,8 +9,10 @@ public class RockThrower : MonoBehaviour {
 	private Vector2 nextPos;
 
 	private ArrayList rocks = new ArrayList();
+	private GameManager GameManager;
 	// Use this for initialization
 	void Start () {
+		GameManager = GameObject.Find ("GameManager").GetComponent<GameManager>();
 		GameManager.gameStarter += gameStart;
 		GameManager.gameEnder += gameEnd;
 		enabled = false;
@@ -39,7 +41,8 @@ public class RockThrower : MonoBehaviour {
 	}
 	void gameEnd(){
 		enabled = false;
-		}
+		GameManager.gameStarter -= gameStart;
+	}
 	private void meteorThrower() {
 		if(rocks.Count < 4) {
 			createMeteor();
