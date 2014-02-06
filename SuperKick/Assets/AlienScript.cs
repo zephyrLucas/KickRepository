@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class AlienScript : MonoBehaviour {
-
+	public Transform lazerPrefab;
 	public static float currentHeight;
 
 	private float speedCurrent = 2f;
@@ -47,12 +47,20 @@ public class AlienScript : MonoBehaviour {
 		}
 
 		speedCurrent = speedCurrent + (speedTarget - speedCurrent) * Time.deltaTime;
-
+		if (speedCurrent < 2f) {
+			lazers ();
+				}
 		float increase = Time.deltaTime * speedCurrent;
 		currentHeight += increase;
 		newPos.y = currentHeight;
 		transform.localPosition = newPos;
 	}
+	void lazers(){
+		//print ("IM A FIRIN MAH LAZAR"); don't do that
+		float chance = Random.Range (1f, 6f);
+		if (chance == 3f||chance==1f)
+						print ("laser!");
+		}
 	void gameStart(){
 		if(this!=null)
 		enabled = true;
