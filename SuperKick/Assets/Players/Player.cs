@@ -266,6 +266,7 @@ public abstract class Player : PhysicsObject {
 	}
 
 	public void makePlatform() {
+		doubleJump = 0;
 		Transform temp = (Transform) Instantiate(GameObject.Find("PlatformGenerator").GetComponent<PlatfromGenorationScript>().platformPrefab);
 
 		temp.localPosition = new Vector2(transform.localPosition.x, transform.localPosition.y - transform.localScale.y / 2 * raycastModifier);
