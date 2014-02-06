@@ -203,8 +203,8 @@ public abstract class Player : PhysicsObject {
 		newPos.y += GravSpeed * Time.deltaTime;
 		
 		transform.localPosition = newPos;
-		if (transform.localPosition.y - transform.localScale.y <= AlienScript.currentHeight) {
-			//death();
+		if (transform.localPosition.y - transform.localScale.y * raycastModifier <= AlienScript.currentHeight) {
+			death();
 		}
 
 		if(Mathf.Abs(transform.localPosition.x) >= 10) {
@@ -265,8 +265,14 @@ public abstract class Player : PhysicsObject {
 		temp.localPosition = new Vector2(transform.localPosition.x, transform.localPosition.y);
 	}
 
+	public void makePlatform() {
+		Transform temp = (Transform) Instantiate(GameObject.Find("PlatformGenerator").GetComponent<PlatfromGenorationScript>().platformPrefab);
+
+		temp.localPosition = new Vector2(transform.localPosition.x, transform.localPosition.y - transform.localScale.y / 2 * raycastModifier);
+	}
+
 	public void makeCold() {
-		isCold += 8f;
+		isCold += 5f;
 
 		GameObject[] plats = GameObject.FindGameObjectsWithTag("platform");
 		foreach (GameObject plat in plats) {
@@ -276,7 +282,7 @@ public abstract class Player : PhysicsObject {
 	}
 
 	public void bendYourMind() {
-		mindBend -= 3f;
+		mindBend -= 4f;
 	}
 
 		protected abstract bool isMovingRight();

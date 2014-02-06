@@ -5,11 +5,11 @@ public class Boost : MonoBehaviour {
 
 	public string type;
 
-	private static string[] Total = {"FROSTBREATHER", "ROCKTHROWER", "AIRJUMPER", "MINDBENDER"};
+	private static string[] Total = {"FROSTBREATHER", "ROCKTHROWER", "AIRJUMPER", "MINDBENDER", "EARTHSHAPER"};
 
 	// Use this for initialization
 	void Start () {
-		type = Total.GetValue(Random.Range(0, 4)) as string;
+		type = Total.GetValue(Random.Range(4, 5)) as string;
 	}
 	
 	// Update is called once per frame
@@ -36,6 +36,9 @@ public class Boost : MonoBehaviour {
 		}
 		if (useType == "MINDBENDER") {
 			pl.bendYourMind();
+		}
+		if (useType == "EARTHSHAPER") {
+			pl.makePlatform();
 		}
 	}
 }
