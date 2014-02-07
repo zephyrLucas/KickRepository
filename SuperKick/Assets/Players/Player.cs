@@ -6,6 +6,7 @@ public abstract class Player : PhysicsObject {
 
 	public static float isCold = 0f;
 	public static float mindBend = 1f;
+	public static float darkness = 0f;
 
 	public CharacterController controller;
 	public Vector2 startPos;
@@ -89,6 +90,13 @@ public abstract class Player : PhysicsObject {
 
 		if (mindBend < 1f) {
 			mindBend += Time.deltaTime;
+		}
+
+		if (darkness > 0f) {
+			darkness -= Time.deltaTime;
+			if (darkness <= 0f) {
+				GameObject.Find("Main Camera").SetActive(true);
+			}
 		}
 
 		if (isMovingRight()) {
@@ -288,6 +296,11 @@ public abstract class Player : PhysicsObject {
 
 	public void bendYourMind() {
 		mindBend -= 4f;
+	}
+
+	public void stealLight() {
+		GameObject.Find("Main Camera").SetActive(false);
+		darkness += 2f;
 	}
 
 		protected abstract bool isMovingRight();
