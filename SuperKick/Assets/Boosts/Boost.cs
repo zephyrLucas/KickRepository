@@ -45,7 +45,7 @@ public class Boost : MonoBehaviour {
 			pl.makePlatform();
 		}
 		if (useType == "LIGHTSTEALER") {
-			pl.stealLight();
+			//pl.stealLight();
 		}
 	}
 }
