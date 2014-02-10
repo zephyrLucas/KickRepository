@@ -50,7 +50,7 @@ public class AlienScript : MonoBehaviour {
 		}
 
 		speedCurrent = speedCurrent + (speedTarget - speedCurrent) * Time.deltaTime;
-		if (speedCurrent < 2f) {
+		if (speedCurrent < 1f) {
 			lazers ();
 				}
 		float increase = Time.deltaTime * speedCurrent;
@@ -59,10 +59,13 @@ public class AlienScript : MonoBehaviour {
 		transform.localPosition = newPos;
 	}
 	void lazers(){
-		//print ("IM A FIRIN MAH LAZAR"); don't do that
-		float chance = Random.Range (1f, 6f);
-		if (chance == 3f||chance==1f)
+		//print ("IM A FIRIN MAH LAZAR"); makes sure the method is called
+		float chance = Random.Range (1f, 60f);
+		if (chance < 2f) {
 						print ("laser!");
+			Transform temp=(Transform)Instantiate(lazerPrefab);
+			temp.localPosition=newPos;
+				}
 		}
 	void gameStart(){
 		if(this!=null)
