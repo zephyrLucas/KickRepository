@@ -7,6 +7,7 @@ public abstract class Player : PhysicsObject {
 	public static float isCold = 0f;
 	public static float mindBend = 1f;
 	public static float darkness = 0f;
+	public static float alpha = 0f;
 
 	public CharacterController controller;
 	public Vector2 startPos;
@@ -94,9 +95,14 @@ public abstract class Player : PhysicsObject {
 
 		if (darkness > 0f) {
 			darkness -= Time.deltaTime;
-			if (darkness <= 0f) {
-				GameObject.Find("Main Camera").SetActive(true);
+			alpha = Mathf.Min(Time.deltaTime / 2 + alpha, 1);
+			//GameObject.Find("OtherBlackScreenOfDeath").GetComponent<Transform>().renderer.material.SetColor("_Color", new Color(0, 0, 0, alpha));
+			if( darkness <= 0) {
+				alpha = 0;
 			}
+		} else {
+			alpha = Mathf.Max(Time.deltaTime / 2 - alpha, 0);
+			//GameObject.Find("OtherBlackScreenOfDeath").GetComponent<Transform>().renderer.material.SetColor("_Color", new Color(0, 0, 0, alpha));
 		}
 
 		if (isMovingRight()) {
@@ -299,8 +305,8 @@ public abstract class Player : PhysicsObject {
 	}
 
 	public void stealLight() {
-		GameObject.Find("Main Camera").SetActive(false);
-		darkness += 2f;
+		darkness += 3f;
+		alpha = 0;
 	}
 
 		protected abstract bool isMovingRight();
