@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEditor;
 using System.Collections;
 
 public class PlatfromGenorationScript : MonoBehaviour {
@@ -34,7 +33,7 @@ public class PlatfromGenorationScript : MonoBehaviour {
 	void gameStart(){
 		enabled = true;
 
-		platformPrefab.renderer.material = AssetDatabase.LoadAssetAtPath("Assets/PlatformGenorator/ForceFieldy.mat", typeof(Material)) as Material;
+		platformPrefab.renderer.material = Resources.LoadAssetAtPath("Assets/Resources/ForceFieldy.mat", typeof(Material)) as Material;
 
 		wallPosLeft.x = -10;
 		wallPosLeft.y = 5;

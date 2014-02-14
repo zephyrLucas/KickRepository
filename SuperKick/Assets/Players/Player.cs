@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEditor;
 using System.Collections;
 //Chris made changes at line 108 for death
 public abstract class Player : PhysicsObject {
@@ -81,9 +80,9 @@ public abstract class Player : PhysicsObject {
 				GameObject[] plats = GameObject.FindGameObjectsWithTag("platform");
 			
 				foreach (GameObject plat in plats) {
-					plat.transform.renderer.material = AssetDatabase.LoadAssetAtPath("Assets/PlatformGenorator/ForceFieldy.mat", typeof(Material)) as Material;
+					plat.transform.renderer.material = Resources.LoadAssetAtPath("Assets/Resources/ForceFieldy.mat", typeof(Material)) as Material;
 				}
-				GameObject.Find("PlatformGenerator").GetComponent<PlatfromGenorationScript>().platformPrefab.renderer.material = AssetDatabase.LoadAssetAtPath("Assets/PlatformGenorator/ForceFieldy.mat", typeof(Material)) as Material;
+				GameObject.Find("PlatformGenerator").GetComponent<PlatfromGenorationScript>().platformPrefab.renderer.material = Resources.LoadAssetAtPath("Assets/Resources/ForceFieldy.mat", typeof(Material)) as Material;
 			}
 		} else {
 			horizontalSp *= Mathf.Pow(.001f, Time.deltaTime);
@@ -221,7 +220,7 @@ public abstract class Player : PhysicsObject {
 		newPos.y += GravSpeed * Time.deltaTime;
 		
 		transform.localPosition = newPos;
-		if (transform.localPosition.y - transform.localScale.y * raycastModifier <= AlienScript.currentHeight) {
+		if (transform.localPosition.y - transform.localScale.y * raycastModifier * raycastModifier <= AlienScript.currentHeight) {
 			death();
 		}
 
@@ -295,9 +294,9 @@ public abstract class Player : PhysicsObject {
 
 		GameObject[] plats = GameObject.FindGameObjectsWithTag("platform");
 		foreach (GameObject plat in plats) {
-			plat.transform.renderer.material = AssetDatabase.LoadAssetAtPath("Assets/PlatformGenorator/IceyForce.mat", typeof(Material)) as Material;
+			plat.transform.renderer.material = Resources.LoadAssetAtPath("Assets/Resources/IceyForce.mat", typeof(Material)) as Material;
 		}
-		GameObject.Find("PlatformGenerator").GetComponent<PlatfromGenorationScript>().platformPrefab.renderer.material = AssetDatabase.LoadAssetAtPath("Assets/PlatformGenorator/IceyForce.mat", typeof(Material)) as Material;
+		GameObject.Find("PlatformGenerator").GetComponent<PlatfromGenorationScript>().platformPrefab.renderer.material = Resources.LoadAssetAtPath("Assets/Resources/IceyForce.mat", typeof(Material)) as Material;
 	}
 
 	public void bendYourMind() {

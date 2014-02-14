@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEditor;
 using System.Collections;
 
 public class Boost : MonoBehaviour {
@@ -12,8 +11,8 @@ public class Boost : MonoBehaviour {
 	void Start () {
 		type = Total.GetValue(Random.Range(0, 5)) as string;
 
-		string path = "Assets/Boosts/" + type + ".mat";
-		transform.renderer.material = AssetDatabase.LoadAssetAtPath(path, typeof(Material)) as Material;
+		string path = "Assets/Resources/" + type + ".mat";
+		transform.renderer.material = Resources.LoadAssetAtPath(path, typeof(Material)) as Material;
 	}
 	
 	// Update is called once per frame
