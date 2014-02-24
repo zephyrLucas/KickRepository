@@ -26,7 +26,7 @@ using UnityEngine;
 using Debug = UnityEngine.Debug;
 
 public class OuyaPanel : EditorWindow
-{
+{  
     private const string KEY_POST_PROCESSOR = "OuyaPanelUsePostProcessor";
 
     public static bool UsePostProcessor
@@ -1627,7 +1627,7 @@ public class OuyaPanel : EditorWindow
                 {
                     GenerateRJava();
                 }
-                */
+                */   
 
                 UsePostProcessor = GUILayout.Toggle(UsePostProcessor, "Enable Java/C++ post processor");
 
@@ -2996,7 +2996,7 @@ public class OuyaPanel : EditorWindow
         }
 
         return string.Empty;
-    }
+    } 
 
-    #endregion
+    #endregion 
 }
