@@ -21,5 +21,6 @@ public class laserCode : MonoBehaviour {
 						GameObject.Destroy (this.gameObject);
 				else if (transform.localPosition.y > AlienScript.currentHeight + 20)
 						GameObject.Destroy (this.gameObject);
+
 	}
 }

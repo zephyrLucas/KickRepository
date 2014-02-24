@@ -50,9 +50,9 @@ public class AlienScript : MonoBehaviour {
 		}
 
 		speedCurrent = speedCurrent + (speedTarget - speedCurrent) * Time.deltaTime;
-//		if (speedCurrent < 1f) {
-//			lazers ();
-//				}
+		if (speedCurrent < 1f) {
+			lazers ();
+				}
 		float increase = Time.deltaTime * speedCurrent;
 		currentHeight += increase;
 		newPos.y = currentHeight;
