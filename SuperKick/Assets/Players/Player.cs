@@ -221,7 +221,7 @@ public abstract class Player : PhysicsObject {
 		
 		transform.localPosition = newPos;
 		if (transform.localPosition.y - transform.localScale.y * raycastModifier * raycastModifier <= AlienScript.currentHeight) {
-			death();
+			//death();
 		}
 
 		if(Mathf.Abs(transform.localPosition.x) >= 10) {
