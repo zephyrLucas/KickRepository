@@ -11,7 +11,7 @@ public class laserCode : MonoBehaviour {
 		directiono.y = 4;
 		float angle = Random.Range (-3f, 3f);
 		directiono.x = angle;
-		animator = this.gameObject.GetComponent<Animator>();
+		animator = this.GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
@@ -26,7 +26,7 @@ public class laserCode : MonoBehaviour {
 		RaycastHit contact;
 		if (Physics.Raycast (transform.localPosition, directiono, out contact,1f)) {
 			print (contact.collider);
-			Animator.setTrigger(boomTrig);
+//			animator.setTrigger(boomTrig);
 				}
 	}
 }
