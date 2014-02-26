@@ -9,7 +9,7 @@ public class Boost : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		type = Total.GetValue(Random.Range(0, 5)) as string;
+		type = Total.GetValue(Random.Range(0, 6)) as string;
 
 		string path = "Assets/Resources/" + type + ".mat";
 		transform.renderer.material = Resources.LoadAssetAtPath(path, typeof(Material)) as Material;

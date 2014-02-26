@@ -31,7 +31,7 @@ public class Player1 : Player {
 	}
 
 	protected override bool isJumping() {
-		if(Input.GetKey(KeyCode.C)) {
+		if(Input.GetKeyDown(KeyCode.C)) {
 		//if(Input.GetKeyDown(KeyCode.C) || OuyaExampleCommon.GetButton(OuyaSDK.BUTTON_O, OuyaSDK.OuyaPlayer.player1)) {
 			return true;
 		}
@@ -39,7 +39,7 @@ public class Player1 : Player {
 	}
 
 	protected override bool isKicking() {
-		if(Input.GetKey(KeyCode.V)) {
+		if(Input.GetKeyDown(KeyCode.V)) {
 		//if(Input.GetKeyDown(KeyCode.V) || OuyaExampleCommon.GetButton(OuyaSDK.BUTTON_A, OuyaSDK.OuyaPlayer.player1)) {
 			return true;
 		}
@@ -47,7 +47,7 @@ public class Player1 : Player {
 	}
 
 	protected override bool isUsingBoost1() {
-		if(Input.GetKey(KeyCode.B)) {
+		if(Input.GetKeyDown(KeyCode.B)) {
 		//if(Input.GetKeyDown(KeyCode.B) || OuyaExampleCommon.GetButton(OuyaSDK.BUTTON_Y, OuyaSDK.OuyaPlayer.player1)) {
 			return true;
 		}
@@ -55,7 +55,7 @@ public class Player1 : Player {
 	}
 
 	protected override bool isUsingBoost2() {
-		if(Input.GetKey(KeyCode.N)) {
+		if(Input.GetKeyDown(KeyCode.N)) {
 		//if(Input.GetKeyDown(KeyCode.N) || OuyaExampleCommon.GetButton(OuyaSDK.BUTTON_U, OuyaSDK.OuyaPlayer.player1)) {
 			return true;
 		}
