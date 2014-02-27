@@ -22,7 +22,7 @@ public class RockThrower : MonoBehaviour {
 	void Update () {
 		meteorThrower();
 		time += Time.deltaTime;
-		if (time > 1f) {
+		if (time > 7f) {
 			GameObject.Destroy( ((Transform) rocks[0]).gameObject);
 			rocks.RemoveAt(0);
 			time = 0f;
@@ -31,7 +31,7 @@ public class RockThrower : MonoBehaviour {
 	}
 	void gameStart(){
 		enabled = true;
-		for(int i = 0; i < 8; i++) {
+		for(int i = 0; i < 12; i++) {
 			Transform temp = (Transform) Instantiate(rockPrefab);
 			rocks.Add(temp);
 			nextPos.x = Random.Range(-10, 10);
