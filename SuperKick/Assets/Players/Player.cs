@@ -8,6 +8,8 @@ public abstract class Player : PhysicsObject {
 	public static float darkness = 0f;
 	public static float alpha = 0f;
 
+	public bool deathEnabled = true;
+
 	public CharacterController controller;
 	public Vector2 startPos;
 	private Vector2 newPos;
@@ -95,13 +97,10 @@ public abstract class Player : PhysicsObject {
 		if (darkness > 0f) {
 			darkness -= Time.deltaTime;
 			alpha = Mathf.Min(Time.deltaTime / 2 + alpha, 1);
-			//GameObject.Find("OtherBlackScreenOfDeath").GetComponent<Transform>().renderer.material.SetColor("_Color", new Color(0, 0, 0, alpha));
-			if( darkness <= 0) {
-				alpha = 0;
-			}
+			GameObject.Find("OtherBlackSreenOfDeath").GetComponent<Transform>().renderer.material.SetColor("_Color", new Color(0, 0, 0, alpha));
 		} else {
-			alpha = Mathf.Max(Time.deltaTime / 2 - alpha, 0);
-			//GameObject.Find("OtherBlackScreenOfDeath").GetComponent<Transform>().renderer.material.SetColor("_Color", new Color(0, 0, 0, alpha));
+			alpha = Mathf.Max(Time.deltaTime / - 2 + alpha, 0);
+			GameObject.Find("OtherBlackSreenOfDeath").GetComponent<Transform>().renderer.material.SetColor("_Color", new Color(0, 0, 0, alpha));
 		}
 
 		if (isMovingRight()) {
@@ -221,7 +220,9 @@ public abstract class Player : PhysicsObject {
 		
 		transform.localPosition = newPos;
 		if (transform.localPosition.y - transform.localScale.y * raycastModifier * raycastModifier <= AlienScript.currentHeight) {
-			//death();
+			if (deathEnabled) {
+				death();
+			}
 		}
 
 		if(Mathf.Abs(transform.localPosition.x) >= 10) {
