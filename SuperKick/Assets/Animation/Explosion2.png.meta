@@ -316,8 +316,8 @@ TextureImporter:
         serializedVersion: 2
         x: 404
         y: 31
-        width: 38
-        height: 35
+        width: 37
+        height: 34
       alignment: 0
       pivot: {x: .5, y: .5}
   spritePackingTag: 

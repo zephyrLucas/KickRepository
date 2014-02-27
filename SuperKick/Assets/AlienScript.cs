@@ -9,7 +9,7 @@ public class AlienScript : MonoBehaviour {
 	private float speedTarget = 2f;
 	private float maxTimeChange = 10f;
 	private float timed = 0f;
-
+	private Vector2 lazerStart;
 	private Vector2 newPos;
 
 	public bool playtestmode = false;
@@ -64,7 +64,10 @@ public class AlienScript : MonoBehaviour {
 		if (chance < 2f) {
 						print ("laser!");
 			Transform temp=(Transform)Instantiate(lazerPrefab);
-			temp.localPosition=newPos;
+			lazerStart=newPos;
+			lazerStart.y+=2.5f;
+			temp.localPosition=lazerStart;
+
 				}
 		}
 	void gameStart(){
