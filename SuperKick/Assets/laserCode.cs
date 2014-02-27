@@ -29,7 +29,7 @@ public class laserCode : MonoBehaviour {
 				else if (transform.localPosition.y > AlienScript.currentHeight + 20)
 						GameObject.Destroy (this.gameObject);
 		RaycastHit contact;
-		if (Physics.Raycast (transform.localPosition, directiono, out contact,transform.localScale.x)&&!exploded) {
+		if (Physics.Raycast (transform.localPosition, directiono, out contact,transform.localScale.x)&&!exploded&&(contact.collider.tag=="Player"||contact.collider.tag=="Wall")) {
 			print (contact.collider);
 			moment1=Time.time;
 
