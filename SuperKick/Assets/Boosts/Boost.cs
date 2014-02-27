@@ -11,6 +11,8 @@ public class Boost : MonoBehaviour {
 	void Start () {
 		type = Total.GetValue(Random.Range(0, 6)) as string;
 
+		type = "ROCKTHROWER";
+
 		string path = "Assets/Resources/" + type + ".mat";
 		transform.renderer.material = Resources.LoadAssetAtPath(path, typeof(Material)) as Material;
 	}

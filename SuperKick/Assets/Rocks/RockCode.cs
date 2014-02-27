@@ -95,8 +95,8 @@ public class RockCode : PhysicsObject {
 			if(stuff.Length != 0) {
 				foreach (MonoBehaviour script in stuff) {
 					if((script is PhysicsObject) && (!any)) {
-						((PhysicsObject) script).setHSpeed(x * Mathf.Abs(horizontalSp) * 6f);
-						((PhysicsObject) script).setVSpeed(y * Mathf.Abs(GravSpeed) * 6f);
+						((PhysicsObject) script).setHSpeed(x * Mathf.Abs(horizontalSp) * 3f);
+						((PhysicsObject) script).setVSpeed(y * Mathf.Abs(GravSpeed) * 3f);
 						any = true;
 					}
 				}

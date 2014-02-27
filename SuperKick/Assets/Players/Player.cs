@@ -280,7 +280,11 @@ public abstract class Player : PhysicsObject {
 		Transform temp = (Transform) Instantiate(GameObject.Find("RockGenerator").GetComponent<RockThrower>().rockPrefab);
 
 		temp.GetComponent<RockCode>().setSpeed(horizontalSp * 4, 0);
-		temp.localPosition = new Vector2(transform.localPosition.x, transform.localPosition.y);
+		if (dirIsR) {
+			temp.localPosition = new Vector2(transform.localPosition.x + transform.localScale.x, transform.localPosition.y);
+		} else {
+			temp.localPosition = new Vector2(transform.localPosition.x - transform.localScale.x, transform.localPosition.y);
+		}
 	}
 
 	public void makePlatform() {
