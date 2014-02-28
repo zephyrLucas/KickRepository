@@ -8,6 +8,9 @@ public abstract class Player : PhysicsObject {
 	public static float darkness = 0f;
 	public static float alpha = 0f;
 
+	private float frozen = 0f;
+	private bool awake = true;
+
 	public bool deathEnabled = true;
 
 	public CharacterController controller;
@@ -94,6 +97,13 @@ public abstract class Player : PhysicsObject {
 			mindBend += Time.deltaTime;
 		}
 
+
+		if(frozen < 0f) {
+			awake = true;
+		} else {
+			frozen -= Time.deltaTime;
+		}
+
 		if (darkness > 0f) {
 			darkness -= Time.deltaTime;
 			alpha = Mathf.Min(Time.deltaTime / 2 + alpha, 1);
@@ -103,13 +113,13 @@ public abstract class Player : PhysicsObject {
 			GameObject.Find("OtherBlackSreenOfDeath").GetComponent<Transform>().renderer.material.SetColor("_Color", new Color(0, 0, 0, alpha));
 		}
 
-		if (isMovingRight()) {
+		if (isMovingRight() && awake) {
 			horizontalSp += 75f * Time.deltaTime * mindBend;
 			dirIsR = true;
 			animator.SetBool("IsRunning", true);
 			transform.localScale = (new  Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, 1));
 
-		} else if (isMovingLeft()) {
+		} else if (isMovingLeft() && awake) {
 			horizontalSp += -75f * Time.deltaTime * mindBend;
 			dirIsR = false;
 			animator.SetBool("IsRunning", true);
@@ -121,7 +131,7 @@ public abstract class Player : PhysicsObject {
 		GravSpeed += gravity * Time.deltaTime;
 
 
-		if(isJumping() && doubleJump < 2) {
+		if(isJumping() && doubleJump < 2 && awake) {
 			GravSpeed += 9f;
 			doubleJump++;
 			animator.SetTrigger("jumpTrig");
@@ -153,7 +163,7 @@ public abstract class Player : PhysicsObject {
 		if(!dirIsR && horizontalSp <= 0) {
 			if (Physics.Raycast(transform.position, left, 5 * transform.localScale.y / 8 * raycastModifier)) {
 				horizontalSp = 0;
-				if(isKicking()) {
+				if(isKicking() && awake) {
 					animator.SetTrigger("KickTrig");
 					horizontalSp += 45f;
 					GravSpeed = 8f;
@@ -180,7 +190,7 @@ public abstract class Player : PhysicsObject {
 		if(dirIsR && horizontalSp >= 0) {
 			if (Physics.Raycast(transform.position, right, 5 * transform.localScale.y / 8 * raycastModifier)) {
 				horizontalSp = 0;
-				if(isKicking()) {
+				if(isKicking() && awake) {
 					animator.SetTrigger("KickTrig");
 					horizontalSp += -45f;
 					GravSpeed = 8f;
@@ -280,11 +290,9 @@ public abstract class Player : PhysicsObject {
 		Transform temp = (Transform) Instantiate(GameObject.Find("RockGenerator").GetComponent<RockThrower>().rockPrefab);
 
 		temp.GetComponent<RockCode>().setSpeed(horizontalSp * 4, 0);
-		if (dirIsR) {
-			temp.localPosition = new Vector2(transform.localPosition.x + transform.localScale.x, transform.localPosition.y);
-		} else {
-			temp.localPosition = new Vector2(transform.localPosition.x - transform.localScale.x, transform.localPosition.y);
-		}
+
+		temp.localPosition = new Vector2(transform.localPosition.x + (transform.localScale.x * 2 / 3), transform.localPosition.y);
+
 	}
 
 	public void makePlatform() {
@@ -311,6 +319,11 @@ public abstract class Player : PhysicsObject {
 	public void stealLight() {
 		darkness += 3f;
 		alpha = 0;
+	}
+
+	public void freeze() {
+		frozen = 1f;
+		awake = false;
 	}
 
 		protected abstract bool isMovingRight();
