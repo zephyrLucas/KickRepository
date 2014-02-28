@@ -23,16 +23,18 @@ public class laserCode : MonoBehaviour {
 	void Update () {
 		current += directiono*Time.deltaTime;
 		transform.localPosition = current;
+		Ray angled = new Ray (transform.localPosition, directiono);
 
 		if (Mathf.Abs (transform.localPosition.x) > 24)
 						GameObject.Destroy (this.gameObject);
 				else if (transform.localPosition.y > AlienScript.currentHeight + 20)
 						GameObject.Destroy (this.gameObject);
 		RaycastHit contact;
-		if (Physics.Raycast (transform.localPosition, directiono, out contact,transform.localScale.x)&&!exploded&&(contact.collider.tag=="Player"||contact.collider.tag=="Wall")) {
+		if (Physics.Raycast (angled, out contact,transform.localScale.x)&&!exploded&&(contact.collider.tag=="Player"||contact.collider.tag=="Wall")) {
 			print (contact.collider);
 			moment1=Time.time;
-
+			if(collider.tag=="Player")
+				collider.frozen();
 			exploded=true;
 			animator.SetTrigger("boomTrig");//DONT GET ORIGINS CONFUSED
 
