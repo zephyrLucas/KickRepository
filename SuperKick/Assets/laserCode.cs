@@ -34,7 +34,7 @@ public class laserCode : MonoBehaviour {
 			print (contact.collider);
 			moment1=Time.time;
 			if(collider.tag=="Player")
-				collider.frozen();
+				(collider.GetComponents<MonoBehaviour>() as PhysicsObject as Player).freeze();
 			exploded=true;
 			animator.SetTrigger("boomTrig");//DONT GET ORIGINS CONFUSED
 
