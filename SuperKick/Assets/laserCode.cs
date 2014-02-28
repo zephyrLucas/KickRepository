@@ -31,10 +31,21 @@ public class laserCode : MonoBehaviour {
 						GameObject.Destroy (this.gameObject);
 		RaycastHit contact;
 		if (Physics.Raycast (angled, out contact,transform.localScale.x)&&!exploded&&(contact.collider.tag=="Player"||contact.collider.tag=="Wall")) {
+		//if (Physics.Raycast (angled, out contact,transform.localScale.x)&&!exploded) {
 			print (contact.collider);
 			moment1=Time.time;
-			if(collider.tag=="Player")
-				(collider.GetComponents<MonoBehaviour>() as PhysicsObject as Player).freeze();
+			if(contact.collider.tag=="Player") { 
+				MonoBehaviour[] stuff = contact.collider.GetComponents<MonoBehaviour>();
+				bool any = false;
+				if(stuff.Length != 0) {
+					foreach (MonoBehaviour script in stuff) {
+						if((script is Player) && (!any)) {
+							((Player) script).freeze();
+							any = true;
+						}
+					}
+				}
+			}
 			exploded=true;
 			animator.SetTrigger("boomTrig");//DONT GET ORIGINS CONFUSED
 
