@@ -13,7 +13,7 @@ public class laserCode : MonoBehaviour {
 		exploded = false;
 		current = transform.localPosition;
 		directiono.y = 4.5f;
-		float angle = Random.Range (-7f, 7f);
+		float angle = Random.Range (-9f, 9f);
 		directiono.x = angle;
 		animator = this.GetComponent<Animator>();
 

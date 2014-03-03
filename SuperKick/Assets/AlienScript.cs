@@ -50,7 +50,7 @@ public class AlienScript : MonoBehaviour {
 		}
 
 		speedCurrent = speedCurrent + (speedTarget - speedCurrent) * Time.deltaTime;
-		if (speedCurrent < 1f) {
+		if (speedCurrent < 2f) {
 			lazers ();
 				}
 		float increase = Time.deltaTime * speedCurrent;
@@ -61,7 +61,7 @@ public class AlienScript : MonoBehaviour {
 	void lazers(){
 		//print ("IM A FIRIN MAH LAZAR"); makes sure the method is called
 		float chance = Random.Range (1f, 60f);
-		if (chance < 4f) {
+		if (chance < 6f) {
 						print ("laser!");
 			Transform temp=(Transform)Instantiate(lazerPrefab);
 			lazerStart=newPos;
