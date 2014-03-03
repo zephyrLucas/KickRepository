@@ -61,7 +61,7 @@ public class AlienScript : MonoBehaviour {
 	void lazers(){
 		//print ("IM A FIRIN MAH LAZAR"); makes sure the method is called
 		float chance = Random.Range (1f, 60f);
-		if (chance < 2f) {
+		if (chance < 4f) {
 						print ("laser!");
 			Transform temp=(Transform)Instantiate(lazerPrefab);
 			lazerStart=newPos;
