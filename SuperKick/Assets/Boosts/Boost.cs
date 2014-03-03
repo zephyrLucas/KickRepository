@@ -5,11 +5,11 @@ public class Boost : MonoBehaviour {
 
 	public string type;
 
-	private static string[] Total = {"FROSTBREATHER", "ROCKTHROWER", "AIRJUMPER", "MINDBENDER", "EARTHSHAPER", "LIGHTSTEALER"};
+	private static string[] Total = {"FROSTBREATHER", "ROCKTHROWER", "AIRJUMPER", "MINDBENDER", "EARTHSHAPER", "LIGHTSTEALER", "BLOODFREEZER"};
 
 	// Use this for initialization
 	void Start () {
-		type = Total.GetValue(Random.Range(0, 6)) as string;
+		type = Total.GetValue(Random.Range(0, 7)) as string;
 
 		//type = "ROCKTHROWER";
 
@@ -47,6 +47,9 @@ public class Boost : MonoBehaviour {
 		}
 		if (useType == "LIGHTSTEALER") {
 			pl.stealLight();
+		}
+		if (useType == "BLOODFREEZER") {
+			pl.freezeAll();
 		}
 	}
 }
