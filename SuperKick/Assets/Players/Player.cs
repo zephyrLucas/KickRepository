@@ -322,8 +322,15 @@ public abstract class Player : PhysicsObject {
 	}
 
 	public void freeze() {
-		frozen = 1f;
+		frozen = 2f;
 		awake = false;
+	}
+
+	public void freezeAll() {
+		GameObject[] guys = GameObject.FindGameObjectsWithTag("Player");
+		foreach (GameObject guy in guys) {
+			(guy.GetComponent<MonoBehaviour>() as Player).freeze();
+		}
 	}
 
 		protected abstract bool isMovingRight();
