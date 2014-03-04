@@ -322,7 +322,7 @@ public abstract class Player : PhysicsObject {
 	}
 
 	public void freeze() {
-		frozen = 2f;
+		frozen = .45f;
 		awake = false;
 	}
 
