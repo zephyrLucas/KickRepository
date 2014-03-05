@@ -3,13 +3,13 @@ using System.Collections;
 //Chris made changes at line 108 for death
 public abstract class Player : PhysicsObject {
 
-	public static float isCold = 0f;
-	public static float mindBend = 1f;
-	public static float darkness = 0f;
-	public static float alpha = 0f;
+	public static float isCold;
+	public static float mindBend;
+	public static float darkness ;
+	public static float alpha ;
 
-	private float frozen = 0f;
-	private bool awake = true;
+	private float frozen ;
+	private bool awake ;
 
 	public bool deathEnabled = true;
 
@@ -57,6 +57,7 @@ public abstract class Player : PhysicsObject {
 
 		enabled = false;
 
+
 	}
 	void gameEnd(){
 		enabled = false;
@@ -64,6 +65,13 @@ public abstract class Player : PhysicsObject {
 		}
 	void gameStart(){
 		enabled = true;
+		isCold = 0f;
+		mindBend = 1f;
+		darkness = 0f;
+		alpha = 0f;
+		
+		frozen = 0f;
+		awake = true;
 		initialization ();
 		
 		startPos.x = xStart;
