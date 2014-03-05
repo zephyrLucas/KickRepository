@@ -14,6 +14,8 @@ public class PlatfromGenorationScript : MonoBehaviour {
 	public Vector2 boostPos;
 	private GameManager GameManager;
 
+
+	public bool boostActive = true;
 	public bool extraBoost = false;
 	// Use this for initialization
 	void Start () {
@@ -68,7 +70,7 @@ public class PlatfromGenorationScript : MonoBehaviour {
 			chance = Random.Range (1, 729);//place holder, 1 in x chance of generating a boost
 		}
 
-		if (chance == 3) {
+		if (chance == 3 && boostActive) {
 			Transform newBoost=(Transform)Instantiate(boostPrefab);
 			boostPos.y+=1;
 			newBoost.localPosition=boostPos;

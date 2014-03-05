@@ -5,7 +5,7 @@ public class Boost : MonoBehaviour {
 
 	public string type;
 
-	private static string[] Total = {"FROSTBREATHER", "ROCKTHROWER", "AIRJUMPER", "MINDBENDER", "EARTHSHAPER", "LIGHTSTEALER", "BLOODFREEZER"};
+	public static string[] Total = {"FROSTBREATHER", "ROCKTHROWER", "AIRJUMPER", "MINDBENDER", "EARTHSHAPER", "LIGHTSTEALER", "BLOODFREEZER"};
 
 	// Use this for initialization
 	void Start () {
