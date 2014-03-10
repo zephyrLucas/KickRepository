@@ -40,6 +40,7 @@ public class laserCode : MonoBehaviour {
 				if(stuff.Length != 0) {
 					foreach (MonoBehaviour script in stuff) {
 						if((script is Player) && (!any)) {
+							((Player) script).getShot ();
 							((Player) script).freeze();
 							any = true;
 						}

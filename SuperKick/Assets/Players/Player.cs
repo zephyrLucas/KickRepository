@@ -323,14 +323,16 @@ public abstract class Player : PhysicsObject {
 	public void bendYourMind() {
 		mindBend -= 4f;
 	}
-
+	public void getShot(){
+		animator.SetTrigger ("ShotTrig");
+		}
 	public void stealLight() {
 		darkness += 3f;
 		alpha = 0;
 	}
 
 	public void freeze() {
-		frozen = .45f;
+		frozen = .675f;
 		awake = false;
 	}
 

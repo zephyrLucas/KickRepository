@@ -4,7 +4,7 @@ using System.Collections;
 public class AlienScript : MonoBehaviour {
 	public Transform lazerPrefab;
 	public static float currentHeight;
-
+	private AudioClip Sound;
 	private float speedCurrent = 2f;
 	private float speedTarget = 2f;
 	private float maxTimeChange = 10f;
@@ -62,7 +62,8 @@ public class AlienScript : MonoBehaviour {
 		//print ("IM A FIRIN MAH LAZAR"); makes sure the method is called
 		float chance = Random.Range (1f, 60f);
 		if (chance < 6f) {
-						print ("laser!");
+			audio.PlayOneShot(Sound);
+						//print ("laser!");
 			Transform temp=(Transform)Instantiate(lazerPrefab);
 			lazerStart=newPos;
 			lazerStart.y+=2.5f;

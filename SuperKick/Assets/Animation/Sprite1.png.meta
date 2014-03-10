@@ -2354,25 +2354,25 @@ TextureImporter:
         height: 39
       alignment: 7
       pivot: {x: .5, y: 0}
-    - name: Sprite1_257
+    - name: Sprite1_500
       rect:
         serializedVersion: 2
         x: 0
         y: 1004
-        width: 93
+        width: 43
         height: 42
       alignment: 7
       pivot: {x: .5, y: 0}
-    - name: Sprite1_258
+    - name: Sprite1_506
       rect:
         serializedVersion: 2
         x: 341
         y: 1004
-        width: 103
+        width: 52
         height: 42
       alignment: 7
       pivot: {x: .5, y: 0}
-    - name: Sprite1_259
+    - name: Sprite1_508
       rect:
         serializedVersion: 2
         x: 444
@@ -3935,7 +3935,7 @@ TextureImporter:
         x: 1
         y: 2355
         width: 42
-        height: 72
+        height: 69
       alignment: 0
       pivot: {x: .5, y: .5}
     - name: Sprite1_433
@@ -4008,6 +4008,60 @@ TextureImporter:
         y: 2354
         width: 44
         height: 36
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Sprite1_501
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 1004
+        width: 49
+        height: 42
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Sprite1_502
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 1004
+        width: 53
+        height: 42
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Sprite1_503
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 1004
+        width: 63
+        height: 42
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Sprite1_504
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 1003
+        width: 62
+        height: 44
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Sprite1_505
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 1003
+        width: 63
+        height: 43
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Sprite1_507
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 1004
+        width: 51
+        height: 42
       alignment: 0
       pivot: {x: .5, y: .5}
   spritePackingTag: 
