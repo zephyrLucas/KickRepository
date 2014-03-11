@@ -5,6 +5,14 @@ public class AudioManager : MonoBehaviour {
 
 	public GameObject positiveVibe;
 	public GameObject doubleSided;
+	public GameObject chronoAura;
+	public GameObject fireAura;
+	public GameObject highestHorizon;
+	public GameObject hyperBounce;
+	public GameObject rippinRave;
+	public GameObject tishtariRain;
+	public GameObject winterAura;
+
 
 	private ArrayList audioFiles = new ArrayList();
 
@@ -16,6 +24,14 @@ public class AudioManager : MonoBehaviour {
 	void Start () {
 		audioFiles.Add(positiveVibe);
 		audioFiles.Add(doubleSided);
+		audioFiles.Add(chronoAura);
+		audioFiles.Add(fireAura);
+		audioFiles.Add(highestHorizon);
+		audioFiles.Add(hyperBounce);
+		audioFiles.Add(rippinRave);
+		audioFiles.Add(tishtariRain);
+		audioFiles.Add(winterAura);
+
 
 		//activeSong = 1;
 		//((audioFiles[activeSong] as GameObject).GetComponent<MonoBehaviour>() as AudioScript).StartPlay();
@@ -26,7 +42,7 @@ public class AudioManager : MonoBehaviour {
 		timeElapsed += Time.deltaTime;
 		if (timeElapsed >= timeTillChange) {
 			print ("change");
-			activeSong = Random.Range(0, 2);
+			activeSong = Random.Range(0, 9);
 			((audioFiles[activeSong] as GameObject).GetComponent<MonoBehaviour>() as AudioScript).StartPlay();
 			timeTillChange += ((audioFiles[activeSong] as GameObject).GetComponent<MonoBehaviour>() as AudioScript).getAudio().clip.length;
 		}
