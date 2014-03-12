@@ -6,6 +6,7 @@ public class RockCode : PhysicsObject {
 
 	Vector2 currentVelocity;
 	Vector2 nextPos;
+	
 	// Use this for initialization
 	public override void Start () {
 		nextPos = this.transform.localPosition;
@@ -95,8 +96,8 @@ public class RockCode : PhysicsObject {
 			if(stuff.Length != 0) {
 				foreach (MonoBehaviour script in stuff) {
 					if((script is PhysicsObject) && (!any)) {
-						((PhysicsObject) script).setHSpeed(x * Mathf.Abs(horizontalSp) * 3f);
-						((PhysicsObject) script).setVSpeed(y * Mathf.Abs(GravSpeed) * 3f);
+						((PhysicsObject) script).setHSpeed(x * Mathf.Abs(horizontalSp) * 2.5f);
+						((PhysicsObject) script).setVSpeed(y * Mathf.Abs(GravSpeed) * 2.5f);
 						any = true;
 					}
 				}

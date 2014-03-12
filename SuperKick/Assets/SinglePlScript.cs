@@ -10,10 +10,10 @@ public class SinglePlScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
-
-		if (ACTIVE) {
-			GameObject.Find("RockGenerator").GetComponent<PlatfromGenorationScript>().boostActive = false;
+		if(ACTIVE) {
+			GameObject.Find("PlatformGenerator").GetComponent<PlatfromGenorationScript>().boostActive = false;
+			//(GameObject.Find("Sprite1_426 1").GetComponent<MonoBehaviour>() as Player).deathEnabled = false;
+			GameObject.Destroy(GameObject.Find("Sprite1_426 1"));
 		}
 	}
 	
@@ -24,8 +24,19 @@ public class SinglePlScript : MonoBehaviour {
 			if (time >= timeMax) {
 				timeMax *= .97f;
 				time = 0f;
-				string type = Boost.Total.GetValue(Random.Range(0, 7)) as string;
-				Boost.executePow(type, findPlayer());
+				int choose = Random.Range(0, 4);
+
+				if (choose == 0) {
+					Boost.executePow("FROSTBREATHER", findPlayer());
+				} else if (choose == 1) {
+					Boost.executePow("MINDBENDER", findPlayer());
+				} else if (choose == 2) {
+					Boost.executePow("LIGHTSTEALER", findPlayer());
+				} else if (choose == 3) {
+					Boost.executePow("BLOODFREEZER", findPlayer());
+				}
+				//string type = Boost.Total.GetValue(Random.Range(0, 7)) as string;
+				//Boost.executePow(type, findPlayer());
 			}
 		}
 

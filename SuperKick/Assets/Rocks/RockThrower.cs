@@ -8,6 +8,8 @@ public class RockThrower : MonoBehaviour {
 
 	private Vector2 nextPos;
 
+	public bool SUPERROCK = false;
+
 	private ArrayList rocks = new ArrayList();
 	private GameManager GameManager;
 	// Use this for initialization
@@ -22,7 +24,7 @@ public class RockThrower : MonoBehaviour {
 	void Update () {
 		meteorThrower();
 		time += Time.deltaTime;
-		if (time > 7f) {
+		if ((time > 7f && !SUPERROCK) || (time > 1f && SUPERROCK)) {
 			GameObject.Destroy( ((Transform) rocks[0]).gameObject);
 			rocks.RemoveAt(0);
 			time = 0f;
@@ -44,7 +46,7 @@ public class RockThrower : MonoBehaviour {
 		GameManager.gameStarter -= gameStart;
 	}
 	private void meteorThrower() {
-		if(rocks.Count < 4) {
+		if((rocks.Count < 4 && !SUPERROCK) || (rocks.Count < 15 && SUPERROCK)) {
 			createMeteor();
 		}
 	}

@@ -16,6 +16,8 @@ public class AudioManager : MonoBehaviour {
 
 	private ArrayList audioFiles = new ArrayList();
 
+	private int command = -1;
+
 	private int activeSong = 1;
 
 	private float timeElapsed = 0f;
@@ -39,12 +41,20 @@ public class AudioManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () { 
+		getCommand();
 		timeElapsed += Time.deltaTime;
 		if (timeElapsed >= timeTillChange) {
-			print ("change");
-			activeSong = Random.Range(0, 9);
+			print ("change" + activeSong);
+			if(command >= 0) {
+				activeSong = command;
+				command = -1;
+			} else {
+				activeSong = Random.Range(0, 9);
+			}
+			print ("change" + activeSong);
 			((audioFiles[activeSong] as GameObject).GetComponent<MonoBehaviour>() as AudioScript).StartPlay();
-			timeTillChange += ((audioFiles[activeSong] as GameObject).GetComponent<MonoBehaviour>() as AudioScript).getAudio().clip.length;
+			timeTillChange = ((audioFiles[activeSong] as GameObject).GetComponent<MonoBehaviour>() as AudioScript).getAudio().clip.length;
+			timeElapsed = 0f;
 		}
  /*
 
@@ -54,4 +64,46 @@ public class AudioManager : MonoBehaviour {
 			print(((audioFiles[activeSong] as GameObject).GetComponent<MonoBehaviour>() as AudioScript).currentlyActive());
 		} */
 	}
+
+	private void getCommand() {
+		if(Input.GetKey(KeyCode.Alpha1)) {
+			command = 0;
+			timeElapsed = 9000f;
+			((audioFiles[activeSong] as GameObject).GetComponent<MonoBehaviour>() as AudioScript).getAudio().Stop();
+		} else if(Input.GetKey(KeyCode.Alpha2)) {
+			command = 1;
+			timeElapsed = 9000f;
+			((audioFiles[activeSong] as GameObject).GetComponent<MonoBehaviour>() as AudioScript).getAudio().Stop();
+		} else if(Input.GetKey(KeyCode.Alpha3)) {
+			command = 2;
+			timeElapsed = 9000f;
+			((audioFiles[activeSong] as GameObject).GetComponent<MonoBehaviour>() as AudioScript).getAudio().Stop();
+		} else if(Input.GetKey(KeyCode.Alpha4)) {
+			command = 3;
+			timeElapsed = 9000f;
+			((audioFiles[activeSong] as GameObject).GetComponent<MonoBehaviour>() as AudioScript).getAudio().Stop();
+		} else if(Input.GetKey(KeyCode.Alpha5)) {
+			command = 4;
+			timeElapsed = 9000f;
+			((audioFiles[activeSong] as GameObject).GetComponent<MonoBehaviour>() as AudioScript).getAudio().Stop();
+		} else if(Input.GetKey(KeyCode.Alpha6)) {
+			command = 5;
+			timeElapsed = 9000f;
+			((audioFiles[activeSong] as GameObject).GetComponent<MonoBehaviour>() as AudioScript).getAudio().Stop();
+		} else if(Input.GetKey(KeyCode.Alpha7)) {
+			command = 6;
+			timeElapsed = 9000f;
+			((audioFiles[activeSong] as GameObject).GetComponent<MonoBehaviour>() as AudioScript).getAudio().Stop();
+		} else if(Input.GetKey(KeyCode.Alpha8)) {
+			command = 7;
+			timeElapsed = 9000f;
+			((audioFiles[activeSong] as GameObject).GetComponent<MonoBehaviour>() as AudioScript).getAudio().Stop();
+		} else if(Input.GetKey(KeyCode.Alpha9)) {
+			command = 8;
+			timeElapsed = 9000f;
+			((audioFiles[activeSong] as GameObject).GetComponent<MonoBehaviour>() as AudioScript).getAudio().Stop();
+		}
+	}
+
+
 }
